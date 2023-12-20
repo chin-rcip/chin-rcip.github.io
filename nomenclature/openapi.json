@@ -1,0 +1,1286 @@
+{
+	"openapi": "3.1.0",
+	"info": {
+		"title": "Nomenclature API",
+		"version": "1.0.0",
+		"description": "Nomenclature for Museum Cataloging API working documentation",
+		"termsOfService": "https://page.nomenclature.info/droitauteur-copyright.app?lang=en",
+		"contact": {
+			"name": "Canadian Heritage Information Network (CHIN)",
+			"url": "https://www.canada.ca/en/heritage-information-network/corporate/contact.html",
+			"email": "pch.RCIP-CHIN.pch@pch.gc.ca"
+		},
+		"license": {
+			"name": "Apache 2.0",
+			"url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+		}
+	},
+	"servers": [
+		{
+			"url": "https://nomenclature.info/api/v1",
+			"description": "Nomenclature API server"
+		}
+	],
+	"paths": {
+		"/concepts": {
+			"get": {
+				"summary": "Get all concepts",
+				"description": "Returns all concept resources, sorted by descending modified date.",
+				"operationId": "getAllConcepts",
+				"parameters": [
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","en-CA","fr","fr-CA","es","iu","iu-Latn"]
+						}
+					},
+					{
+						"name": "deprecated",
+						"in": "query",
+						"description": "Deprecating status that need to be considered for filter. If not specified, response includes both active and deprecated concepts.",
+						"required": false,
+						"schema": {
+							"type": "boolean",
+							"enum": ["true","false"]
+						}
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "Number of items to return at one time (max 100)",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"maximum": 100
+						}
+					},
+					{
+						"name": "offset",
+						"in": "query",
+						"description": "The first number of items to be excluded from a response",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Concepts"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Concepts"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/concepts/{conceptId}": {
+			"get": {
+				"summary": "Get a concept by ID",
+				"description": "Returns a concept resource based on concept ID",
+				"operationId": "getConceptById",
+				"parameters": [
+					{
+						"name": "conceptId",
+						"in": "path",
+						"description": "Identifier of a concept",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "1090"
+						}
+					},
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","en-CA","fr","fr-CA","es","iu","iu-Latn"]
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Concepts"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Concepts"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/concepts/{conceptId}/labels": {
+			"get": {
+				"summary": "Get all labels of a concept",
+				"description": "Returns all label resources of a concept based on concept ID",
+				"operationId": "getLabelsByConceptId",
+				"parameters": [
+					{
+						"name": "conceptId",
+						"in": "path",
+						"description": "Identifier of a concept",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "1090"
+						}
+					},
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","en-CA","fr","fr-CA","es","iu","iu-Latn"]
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Labels"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Labels"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/concepts/{conceptId}/siblings": {
+			"get": {
+				"summary": "Get all siblings of a concept",
+				"description": "Returns all sibling resources of a concept based on concept ID",
+				"operationId": "getSiblingsByConceptId",
+				"parameters": [
+					{
+						"name": "conceptId",
+						"in": "path",
+						"description": "Identifier of a concept",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "1090"
+						}
+					},
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","en-CA","fr","fr-CA","es","iu","iu-Latn"]
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Concepts"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Concepts"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/contributors": {
+			"get": {
+				"summary": "Get all term contributors",
+				"description": "Returns all term contributor resources, sorted by ascending identifiers.",
+				"operationId": "getAllContributors",
+				"parameters": [
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","fr"]
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Contributors"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Contributors"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/contributors/{agentId}": {
+			"get": {
+				"summary": "Get a term contributor by ID",
+				"description": "Returns a term contributor resource based on agent ID",
+				"operationId": "getContributorById",
+				"parameters": [
+					{
+						"name": "agentId",
+						"in": "path",
+						"description": "Identifier of an agent (term contributor)",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "2"
+						}
+					},
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","fr"]
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Contributors"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Contributors"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/citations": {
+			"get": {
+				"summary": "Get all bibliographic citations",
+				"description": "Returns all bibliographic resources, sorted by alphabetical order of bibliographic citation's literal value.",
+				"operationId": "getAllCitations",
+				"parameters": [
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","fr"]
+						}
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "Number of items to return at one time (max 100)",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"maximum": 100
+						}
+					},
+					{
+						"name": "offset",
+						"in": "query",
+						"description": "The first number of items to be excluded from a response",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Citations"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Citations"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/citations/{bibId}": {
+			"get": {
+				"summary": "Get a bibliographic citation by ID",
+				"description": "Returns a bibliographic resource based on its ID",
+				"operationId": "getCitationById",
+				"parameters": [
+					{
+						"name": "bibId",
+						"in": "path",
+						"description": "Zotero identifier of a bibliographic resource",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "H2E7VWRI"
+						}
+					},
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","fr"]
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Citations"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Citations"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/revisions": {
+			"get": {
+				"summary": "Get all change notes",
+				"description": "Returns all change notes resources, sorted by descending created date of change note.",
+				"operationId": "getAllRevisions",
+				"parameters": [
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {"type": "string", "enum": ["en","fr"]}
+					},
+					{
+						"name": "startDate",
+						"in": "query",
+						"description": "Earliest date from which changes were made",
+						"required": false,
+						"schema": {"type": "string","format": "date","example":"2023-10-01"}
+					},
+					{
+						"name": "endDate",
+						"in": "query",
+						"description": "Latest date to which changes were made",
+						"required": false,
+						"schema": {"type": "string","format": "date","example":"2023-12-31"}
+					},
+					{
+						"name": "nomId",
+						"in": "query",
+						"description": "Identifier of a concept",
+						"required": false,
+						"schema": {"type": "string","example":"1090"}
+					},
+					{
+						"name": "changeType",
+						"in": "query",
+						"description": "Type of changes",
+						"required": false,
+						"schema": {"type": "string", "enum": ["create","remove","update","move"]}
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "Number of items to return at one time (max 100)",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"maximum": 100
+						}
+					},
+					{
+						"name": "offset",
+						"in": "query",
+						"description": "The first number of items to be excluded from a response",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Revisions"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Revisions"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/revisions/{changeNoteId}": {
+			"get": {
+				"summary": "Get a change note by ID",
+				"description": "Returns a change note resource based on its ID",
+				"operationId": "getRevisionById",
+				"parameters": [
+					{
+						"name": "changeNoteId",
+						"in": "path",
+						"description": "Identifier of a change note (revision)",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "995592fe-017d-4929-a1fd-48f5e5e033f8"
+						}
+					},
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","fr"]
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Revisions"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Revisions"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/search": {
+			"get": {
+				"summary": "Search concepts by keyword",
+				"description": "Returns minimized concept resources when searching for a keyword across either all labels or all text field (i.e. all labels, scope notes and definitions), sorted by descending Lucene index score.",
+				"operationId": "searchByKeyword",
+				"parameters": [
+					{
+						"name": "termSearch",
+						"in": "query",
+						"description": "Search keyword",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"example": "chair"
+						}
+					},
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","en-CA","fr","fr-CA","es","iu","iu-Latn"]
+						}
+					},
+					{
+						"name": "scope",
+						"in": "query",
+						"description": "Scope of a search, either all labels or all text field (i.e. all labels, scope notes and definitions)",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"default": "allLabels",
+							"enum": ["allLabels","allText"]
+						}
+					},
+					{
+						"name": "limit",
+						"in": "query",
+						"description": "Number of items to return at one time (max 100)",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32",
+							"maximum": 100
+						}
+					},
+					{
+						"name": "offset",
+						"in": "query",
+						"description": "The first number of items to be excluded from a response",
+						"required": false,
+						"schema": {
+							"type": "integer",
+							"format": "int32"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Search"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Search"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/void": {
+			"get": {
+				"summary": "Get dataset description",
+				"description": "Returns a dataset description resource",
+				"operationId": "getDatasetDescription",
+				"parameters": [
+					{
+						"name": "lang",
+						"in": "query",
+						"description": "Language tag(s) that need to be considered for filter. If not specified, response includes literal values in all languages. Response includes values in all variants of specified language, e.g. `lang=en` returns **both** values in `en` and `en-CA`. If the CA variant is targeted but doesn't exist, reponse includes the international form. If the Latn script is targeted but doesn't exist, response includes the native script.",
+						"required": false,
+						"schema": {
+							"type": "string",
+							"enum": ["en","fr"]
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Void"
+								}
+							},
+							"application/xml": {
+								"schema": {
+									"$ref": "#/components/schemas/Void"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"EndpointRef": {
+				"required": ["id","self"],
+				"type": "object",
+				"properties": {
+					"id": {"type": "string"},
+					"self": {"type": "string", "format": "uri"}
+				}
+			},
+			"EndpointRefArray": {
+				"type": "array",
+				"items": {"$ref": "#/components/schemas/EndpointRef"}
+			},
+			"Literal": {
+				"required": ["value","language"],
+				"type": "object",
+				"properties": {
+					"value": {"type": "string"},
+					"language": {"type": "string"}
+				}
+			},
+			"LiteralArray": {
+				"type": "array",
+				"items": {"$ref": "#/components/schemas/Literal"}
+			},
+			"Date": {
+				"type": "string",
+				"format": "date-time"
+			},
+			"Image": {
+				"required": ["contentUrl"],
+				"type": "object",
+				"properties": {
+					"id": {"type": "string"},
+					"uri": {"type": "string", "format": "uri"},
+					"resourceType": {
+						"type": "array",
+						"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
+						"xml": {"name":"resourceTypes","wrapped":true}
+					},
+					"contentUrl": {"type": "string", "format": "uri"},
+					"name": {
+						"type": "array",
+						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+						"xml": {"name":"names","wrapped":true}
+					},
+					"creditText": {
+						"type": "array",
+						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"creditText"}},
+						"xml": {"name":"creditTexts","wrapped":true}
+					},
+					"source": {"type": "string", "format": "uri"},
+					"thumbnailUrl": {"type": "string", "format": "uri"},
+					"position": {"type": "integer", "minimum": 1, "maximum": 4}
+				},
+				"xml": {"name":"image"}
+			},
+			"Level": {
+				"required": ["position"],
+				"type": "object",
+				"properties": {
+					"uri": {"type": "string", "format": "uri"},
+					"position": {"type": "integer", "minimum": 1, "maximum": 6},
+					"prefLabel": {
+						"type": "array",
+						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"prefLabel"}},
+						"xml": {"name":"prefLabels","wrapped":true}
+					}
+				}
+			},
+			"uriArray": {
+				"type": "array",
+				"items": {"type": "string", "format": "uri"}
+			},
+			"Labels": {
+				"allOf": [
+					{"$ref": "#/components/schemas/EndpointRef"},
+					{
+						"type": "object",
+						"properties": {
+							"uri": {"type": "string", "format": "uri"},
+							"resourceType": {
+								"type": "array",
+								"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
+								"xml": {"name":"resourceTypes","wrapped":true}
+							},
+							"mainEntityOfPage": {"type": "string", "format": "uri", "description": "Active concept only"},
+							"deprecated": {"type": "boolean"},
+							"label": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
+									"xml": {"name": "label"}
+								},
+								"description": "Deprecated concept only",
+								"xml": {"name": "labels","wrapped": true}
+							},
+							"prefLabel": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
+									"xml": {"name": "prefLabel"}
+								},
+								"description": "Active concept only",
+								"xml": {"name": "prefLabels","wrapped": true}
+							},
+							"altLabel": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"literalForm": {"$ref": "#/components/schemas/Literal"}
+									},
+									"xml": {"name": "altLabel"}
+								},
+								"description": "Active concept only",
+								"xml": {"name": "altLabels","wrapped": true}
+							},
+							"hiddenLabel": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
+									"xml": {"name": "hiddenLabel"}
+								},
+								"description": "Active concept only",
+								"xml": {"name": "hiddenLabels","wrapped": true}
+							}
+						}
+					}
+				]
+			},
+			"Concept": {
+				"allOf": [
+					{"$ref": "#/components/schemas/EndpointRef"},
+					{
+						"type": "object",
+						"properties": {
+							"uri": {"type": "string", "format": "uri"},
+							"inScheme": {"type": "string", "format": "uri", "description": "Active concept only"},
+							"resourceType": {
+								"type": "array",
+								"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
+								"xml": {"name":"resourceTypes","wrapped":true}
+							},
+							"mainEntityOfPage": {"type": "string", "format": "uri", "description": "Active concept only"},
+							"created": {"allOf":[{"$ref": "#/components/schemas/Date"}], "description": "Active concept only"},
+							"modified": {"$ref": "#/components/schemas/Date"},
+							"deprecated": {"type": "boolean"},
+							"isReplacedBy": {
+								"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],
+								"description": "Deprecated concept only"
+							},
+							"notation": {"type": "string", "description": "Active concept only"},
+							"label": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
+									"xml": {"name":"label"}
+								},
+								"description": "Deprecated concept only",
+								"xml": {"name": "labels","wrapped": true}
+							},
+							"prefLabel": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"uri": {"type": "string", "format": "uri"},
+										"literalForm": {"$ref": "#/components/schemas/Literal"},
+										"contributor": {
+											"type": "array",
+											"items": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],"xml": {"name":"contributor"}},
+											"xml": {"name":"contributors","wrapped":true}
+										},
+										"citation": {
+											"type": "array",
+											"items": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],"xml": {"name":"citation"}},
+											"xml": {"name":"citations","wrapped":true}
+										},
+										"gender": {"type": "string", "enum": ["m","f"]}
+									},
+									"xml": {"name":"prefLabel"}
+								},
+								"description": "Active concept only",
+								"xml": {"name":"prefLabels","wrapped":true}
+							},
+							"altLabel": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"literalForm": {"$ref": "#/components/schemas/Literal"},
+										"type": {"type": "string", "enum": ["inverse"]}
+									},
+									"xml": {"name":"altLabel"}
+								},
+								"description": "Active concept only",
+								"xml": {"name":"altLabels","wrapped":true}
+							},
+							"hiddenLabel": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
+									"xml": {"name":"hiddenLabel"}
+								},
+								"description": "Active concept only",
+								"xml": {"name":"hiddenLabels","wrapped":true}
+							},
+							"image": {
+								"type": "array", 
+								"maxItems": 4,
+								"items": {"$ref": "#/components/schemas/Image"},
+								"description": "Active concept only",
+								"xml": {"name":"images","wrapped":true}
+							},
+							"isPartOf": {"allOf":[{"$ref": "#/components/schemas/Level"}], "description": "Active concept only"},
+							"position": {
+								"type": "array",
+								"minItems": 6,
+								"maxItems": 6,
+								"items": {
+									"type": "object",
+									"properties": {
+										"uri": {"type": "string", "format": "uri"},
+										"value": {"type": "string"},
+										"type": {
+											"type": "string", 
+											"enum": ["en","enInv","enCa","enCaInv","fr","frCa"]
+										}
+									},
+									"xml": {"name":"position"}
+								},
+								"description": "Active concept only",
+								"xml": {"name":"positions","wrapped":true}
+							},
+							"topConceptOf": {"type": "string", "format": "uri", "description": "Active concept only"},
+							"broader": {
+								"type": "array",
+								"items": {
+									"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],
+									"xml": {"name":"broader"}
+								}, 
+								"description": "Active concept only",
+								"xml": {"name":"broaders","wrapped":true}
+							},
+							"narrower": {
+								"type": "array",
+								"items": {
+									"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],
+									"xml": {"name":"narrower"}
+								},
+								"description": "Active concept only",
+								"xml": {"name":"narrowers","wrapped":true}
+							},
+							"definition": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"uri": {"type": "string", "format": "uri"},
+										"literalForm": {"$ref": "#/components/schemas/Literal"},
+										"citation": {
+											"type": "array",
+											"items": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],"xml": {"name":"citation"}},
+											"xml": {"name":"citations","wrapped":true}
+										}
+									},
+									"xml": {"name":"definition"}
+								},
+								"description": "Active concept only",
+								"xml": {"name":"definitions","wrapped":true}
+							},
+							"scopeNote": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
+									"xml": {"name":"scopeNote"}
+								},
+								"description": "Active concept only",
+								"xml": {"name":"scopeNotes","wrapped":true}
+							},
+							"exactMatch": {
+								"type": "array",
+								"items": {"type": "string", "format": "uri", "xml": {"name":"exactMatch"}},
+								"description": "Active concept only",
+								"xml": {"name":"exactMatches","wrapped":true}
+							},
+							"closeMatch": {
+								"type": "array",
+								"items": {"type": "string", "format": "uri", "xml": {"name":"closeMatch"}},
+								"description": "Active concept only",
+								"xml": {"name":"closeMatches","wrapped":true}
+							},
+							"citation": {
+								"type": "array",
+								"items": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],"xml": {"name":"citation"}}, 
+								"description": "Active concept only",
+								"xml": {"name":"citations","wrapped":true}
+							},
+							"changeNote": {
+								"type": "array",
+								"items": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],"xml": {"name":"changeNote"}},
+								"xml": {"name":"changeNotes","wrapped":true}
+							}
+						}
+					}
+				],
+			"xml": {"name": "Concept"}
+			},
+			"Concepts": {
+				"type": "array",
+				"items": {
+					"$ref": "#/components/schemas/Concept"
+				},
+				"xml": {"name": "Concepts","wrapped": true}
+			},
+			"Contributors": {
+				"type": "array",
+				"items": {
+					"allOf": [
+						{"$ref": "#/components/schemas/EndpointRef"},
+						{
+							"type": "object",
+							"properties": {
+								"uri": {"type": "string", "format": "uri"},
+								"name": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
+										"xml": {"name":"name"}
+									},
+									"xml": {"name":"names","wrapped":true}
+								},
+						        "nick": {
+									"type": "array",
+									"items": {"type": "string", "xml": {"name": "nick"}},
+									"xml": {"name":"nicks","wrapped":true}
+								},
+						        "resourceType": {
+									"type": "array",
+									"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
+									"xml": {"name":"resourceTypes","wrapped":true}
+								}
+					        }
+				        }
+					],
+					"xml": {"name":"Contributor"}
+				},
+				"xml": {"name":"Contributors","wrapped":true}
+			},
+			"Citations": {
+				"type": "array",
+				"items": {
+					"allOf": [
+						{"$ref": "#/components/schemas/EndpointRef"},
+						{
+							"type": "object",
+							"properties": {
+								"uri": {"type": "string", "format": "uri"},
+								"bibliographicCitation": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
+										"xml": {"name":"bibliographicCitation"}
+									},
+									"xml": {"name":"bibliographicCitations","wrapped":true}
+								},
+						        "url": {"type": "string","format": "uri"},
+						        "source": {"type": "string","format": "uri"},
+						        "resourceType": {
+									"type": "array",
+									"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
+									"xml": {"name":"resourceTypes","wrapped":true}
+								}
+					        }
+				        }
+					],
+					"xml": {"name":"Citation"}
+				},
+				"xml": {"name":"Citations","wrapped":true}
+			},
+			"Revisions": {
+				"type": "array",
+				"items": {
+					"allOf": [
+						{"$ref": "#/components/schemas/EndpointRef"},
+						{
+							"type": "object",
+							"properties": {
+								"uri": {"type": "string", "format": "uri"},
+								"createdDate": {"$ref": "#/components/schemas/Date"},
+								"description": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
+										"xml": {"name":"description"}
+									},
+									"xml": {"name":"descriptions","wrapped":true}
+								},
+								"label": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
+										"xml": {"name":"label"}
+									},
+									"xml": {"name":"labels","wrapped":true}
+								},
+								"subjectOfChange": {"$ref": "#/components/schemas/EndpointRef"},
+						        "changeType": {"type": "string"},
+						        "resourceType": {
+									"type": "array",
+									"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
+									"xml": {"name":"resourceTypes","wrapped":true}
+								}
+					        }
+				        }
+					],
+					"xml": {"name":"Revision"}
+				},
+				"xml": {"name":"Revisions","wrapped":true}
+			},
+			"Search": {
+				"type": "array",
+				"items": {
+					"allOf": [
+						{"$ref": "#/components/schemas/Labels"},
+						{
+							"type": "object",
+							"properties": {
+								"score": {"type": "number", "format": "float"},
+								"definition": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"uri": {"type": "string", "format": "uri"},
+											"literalForm": {"$ref": "#/components/schemas/Literal"}
+										},
+										"xml": {"name":"definition"}
+									},
+									"description": "Active concept only",
+									"xml": {"name":"definitions","wrapped":true}
+								},
+						        "resourceType": {
+									"type": "array",
+									"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
+									"xml": {"name":"resourceTypes","wrapped":true}
+								}
+					        }
+				        }
+					],
+					"xml": {"name":"Concept"}
+				},
+				"xml": {"name":"Concepts","wrapped":true}
+			},
+			"Void": {
+				"type": "object",
+				"properties": {
+					"self": {"type": "string", "format": "uri"},
+					"uri": {"type": "string", "format": "uri"},
+					"resourceType": {
+						"type": "array",
+						"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
+						"xml": {"name":"resourceTypes","wrapped":true}
+					},
+					"created": {"$ref": "#/components/schemas/Date"},
+					"modified": {"$ref": "#/components/schemas/Date"},
+					"title": {
+						"type": "array",
+						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"title"}},
+						"xml": {"name":"titles","wrapped":true}
+					},
+					"license": {"type": "string", "format": "uri"},
+					"rights": {
+						"type": "array",
+						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"rightStatement"}},
+						"xml": {"name":"rightStatements","wrapped":true}
+					},
+					"description": {
+						"type": "array",
+						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"description"}},
+						"xml": {"name":"descriptions","wrapped":true}
+					},
+					"dataDump": {
+						"type": "array",
+						"items": {"type": "string", "format": "uri", "xml": {"name":"dataDump"}},
+						"xml": {"name":"dataDumps","wrapped":true}
+					},
+					"entities": {"type": "integer"},
+					"triples": {"type": "integer"},
+					"rightsHolder": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"uri": {"type": "string", "format": "uri"},
+								"name": {
+									"type": "array",
+									"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+									"xml": {"name":"names","wrapped":true}
+								}
+							},
+							"xml": {"name":"rightsHolder"}
+						},
+						"xml": {"name":"rightsHolders","wrapped":true}			
+					},
+					"creator": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"uri": {"type": "string", "format": "uri"},
+								"name": {
+									"type": "array",
+									"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+									"xml": {"name":"names","wrapped":true}
+								}
+							},
+							"xml": {"name":"creator"}
+						},
+						"xml": {"name":"creators","wrapped":true}								
+					},
+					"contributor": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"uri": {"type": "string", "format": "uri"},
+								"name": {
+									"type": "array",
+									"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+									"xml": {"name":"names","wrapped":true}
+								}
+							},
+							"xml": {"name":"contributor"}
+						},
+						"xml": {"name":"contributors","wrapped":true}								
+					},
+					"publisher": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"uri": {"type": "string", "format": "uri"},
+								"name": {
+									"type": "array",
+									"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+									"xml": {"name":"names","wrapped":true}
+								}
+							},
+							"xml": {"name":"publisher"}
+						},
+						"xml": {"name":"publishers","wrapped":true}					
+					},
+					"classPartition": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"entities": {"type": "integer"},
+								"class": {"type": "string", "format": "uri"}
+							},
+							"xml": {"name":"classPartition"}
+						},
+						"xml": {"name":"classPartitions","wrapped":true}				
+					},
+					"languagePartition": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"triples": {"type": "integer"},
+								"language": {"type": "string"}
+							},
+							"xml": {"name":"languagePartition"}
+						},
+						"xml": {"name":"languagePartitions","wrapped":true}			
+					},
+					"propertyPartition": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"triples": {"type": "integer"},
+								"property": {"type": "string", "format": "uri"}
+							},
+							"xml": {"name":"propertyPartition"}
+						},
+						"xml": {"name":"propertyPartitions","wrapped":true}
+					},
+					"subset": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"triples": {"type": "integer"},
+								"linkPredicate": {"type": "string", "format": "uri"},
+								"target": {
+									"type": "object",
+									"properties": {
+										"name": {
+										"type": "array",
+										"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+										"xml": {"name":"names","wrapped":true}
+									}}
+								}
+							},
+							"xml": {"name":"subset"}
+						},
+						"xml": {"name":"subsets","wrapped":true}
+					}
+		        },
+				"xml": {"name":"VoidDataset"}
+			}
+		},
+		"examples": {}
+	}
+}

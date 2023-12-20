@@ -1,0 +1,34 @@
+<!doctype html> <!-- Important: must specify -->
+<html>
+  <head>
+    <meta charset="utf-8"> <!-- Important: rapi-doc uses utf8 characters -->
+    <script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
+  </head>
+  <body>
+    <rapi-doc id="thedoc" 
+      render-style="read" 
+      allow-try="false" 
+      allow-authentication="false" 
+      regular-font="Open Sans" 
+      mono-font="Monaco"
+      show-header="false"
+      show-method-in-nav-bar="as-colored-text"
+      schema-style="table"
+      primary-color="#803e3e"
+      nav-bg-color="#f7f7f7" nav-text-color="" nav-hover-bg-color="#e6e6e6" nav-hover-text-color="#803e3e"
+    > </rapi-doc>
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', (event) => {
+        let docEl = document.getElementById("thedoc");
+        // let strSpec = ``
+        // let objSpec = JSON.parse(strSpec);
+        // docEl.loadSpec(objSpec);
+
+        fetch('openapi.json')
+        .then(response => response.json())
+        .then(data => docEl.loadSpec(data))
+      })
+    </script>
+  </body>
+</html>
