@@ -1101,13 +1101,24 @@
 									"items": {
 										"type": "object",
 										"properties": {
-											"uri": {"type": "string", "format": "uri"},
 											"literalForm": {"$ref": "#/components/schemas/Literal"}
 										},
 										"xml": {"name":"definition"}
 									},
 									"description": "Active concept only",
 									"xml": {"name":"definitions","wrapped":true}
+								},
+								"scopeNotes": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"literalForm": {"$ref": "#/components/schemas/Literal"}
+										},
+										"xml": {"name":"scopeNote"}
+									},
+									"description": "Active concept only",
+									"xml": {"name":"scopeNotes","wrapped":true}
 								},
 						        "resourceType": {
 									"type": "array",
