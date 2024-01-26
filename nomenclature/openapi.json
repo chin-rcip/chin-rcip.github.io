@@ -546,7 +546,7 @@
 		"/search": {
 			"get": {
 				"summary": "Search concepts by keyword",
-				"description": "Returns minimized concept resources when searching for a keyword across either all labels or all text field (i.e. all labels, scope notes and definitions), sorted by descending Lucene index score.",
+				"description": "Returns minimized concept resources when searching for a keyword across either all labels or all text fields (i.e. all labels, scope notes and definitions), sorted by descending Lucene index score.",
 				"operationId": "searchByKeyword",
 				"parameters": [
 					{
@@ -572,7 +572,7 @@
 					{
 						"name": "scope",
 						"in": "query",
-						"description": "Scope of a search, either all labels or all text field (i.e. all labels, scope notes and definitions)",
+						"description": "Scope of a search, either all labels or all text fields (i.e. all labels, scope notes and definitions)",
 						"required": false,
 						"schema": {
 							"type": "string",
@@ -665,55 +665,51 @@
 				"required": ["id","self"],
 				"type": "object",
 				"properties": {
-					"id": {"type": "string"},
-					"self": {"type": "string", "format": "uri"}
+					"id": {"type": "string", "description": "Identifier of resource"},
+					"self": {"type": "string", "format": "uri", "description": "URL of resource API endpoint"}
 				}
-			},
-			"EndpointRefArray": {
-				"type": "array",
-				"items": {"$ref": "#/components/schemas/EndpointRef"}
 			},
 			"Literal": {
 				"required": ["value","language"],
 				"type": "object",
 				"properties": {
-					"value": {"type": "string"},
-					"language": {"type": "string"}
+					"value": {"type": "string", "description": "Literal value"},
+					"language": {"type": "string", "description": "Language tag of literal value"}
 				}
-			},
-			"LiteralArray": {
-				"type": "array",
-				"items": {"$ref": "#/components/schemas/Literal"}
 			},
 			"Date": {
 				"type": "string",
 				"format": "date-time"
 			},
+			"ResourceTypesArray": {
+				"type": "array",
+				"items": {"type": "string", "format": "uri", "xml": {"name":"resourceType"}},
+				"description": "Classes of resource",
+				"xml": {"name":"resourceTypes","wrapped":true}
+			},
 			"Image": {
 				"required": ["contentUrl"],
 				"type": "object",
 				"properties": {
-					"id": {"type": "string"},
-					"uri": {"type": "string", "format": "uri"},
-					"resourceType": {
-						"type": "array",
-						"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
-						"xml": {"name":"resourceTypes","wrapped":true}
-					},
-					"contentUrl": {"type": "string", "format": "uri"},
+					"id": {"type": "string", "description": "Identifier of image"},
+					"uri": {"type": "string", "format": "uri", "description": "Image URI"},
+					"resourceType": {"$ref": "#/components/schemas/ResourceTypesArray"},
+					"contentUrl": {"type": "string", "format": "uri", "description": "URL of image hosted by PCH"},
 					"name": {
 						"type": "array",
-						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}], "xml": {"name":"name"}},
+						"description": "Names of image",
 						"xml": {"name":"names","wrapped":true}
 					},
 					"creditText": {
 						"type": "array",
 						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"creditText"}},
+						"description": "Credit lines of image source",
 						"xml": {"name":"creditTexts","wrapped":true}
 					},
-					"source": {"type": "string", "format": "uri"},
-					"thumbnailUrl": {"type": "string", "format": "uri"},
-					"position": {"type": "integer", "minimum": 1, "maximum": 4}
+					"source": {"type": "string", "format": "uri", "description": "URL of the original image"},
+					"thumbnailUrl": {"type": "string", "format": "uri", "description": "URL of thumbnail image hosted by PCH"},
+					"position": {"type": "integer", "minimum": 1, "maximum": 4, "description": "Display order of image"}
 				},
 				"xml": {"name":"image"}
 			},
@@ -721,18 +717,15 @@
 				"required": ["position"],
 				"type": "object",
 				"properties": {
-					"uri": {"type": "string", "format": "uri"},
-					"position": {"type": "integer", "minimum": 1, "maximum": 6},
+					"uri": {"type": "string", "format": "uri", "description": "Level URI"},
+					"position": {"type": "integer", "minimum": 1, "maximum": 6, "description": "Level number"},
 					"prefLabel": {
 						"type": "array",
 						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"prefLabel"}},
+						"description": "Preferred terms of level",
 						"xml": {"name":"prefLabels","wrapped":true}
 					}
 				}
-			},
-			"uriArray": {
-				"type": "array",
-				"items": {"type": "string", "format": "uri"}
 			},
 			"Labels": {
 				"allOf": [
@@ -740,14 +733,10 @@
 					{
 						"type": "object",
 						"properties": {
-							"uri": {"type": "string", "format": "uri"},
-							"resourceType": {
-								"type": "array",
-								"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
-								"xml": {"name":"resourceTypes","wrapped":true}
-							},
-							"mainEntityOfPage": {"type": "string", "format": "uri", "description": "Active concept only"},
-							"deprecated": {"type": "boolean"},
+							"uri": {"type": "string", "format": "uri", "description": "Concept URI"},
+							"resourceType": {"$ref": "#/components/schemas/ResourceTypesArray"},
+							"mainEntityOfPage": {"type": "string", "format": "uri", "description": "URL of concept page on Nomenclature website (active concept only)"},
+							"deprecated": {"type": "boolean", "description": "Indicator of deprecation"},
 							"label": {
 								"type": "array",
 								"items": {
@@ -755,7 +744,7 @@
 									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
 									"xml": {"name": "label"}
 								},
-								"description": "Deprecated concept only",
+								"description": "Labels of concept (deprecated concept only)",
 								"xml": {"name": "labels","wrapped": true}
 							},
 							"prefLabel": {
@@ -765,7 +754,7 @@
 									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
 									"xml": {"name": "prefLabel"}
 								},
-								"description": "Active concept only",
+								"description": "Preferred terms of concept (active concept only)",
 								"xml": {"name": "prefLabels","wrapped": true}
 							},
 							"altLabel": {
@@ -777,7 +766,7 @@
 									},
 									"xml": {"name": "altLabel"}
 								},
-								"description": "Active concept only",
+								"description": "Alternative terms of concept (active concept only)",
 								"xml": {"name": "altLabels","wrapped": true}
 							},
 							"hiddenLabel": {
@@ -787,12 +776,13 @@
 									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
 									"xml": {"name": "hiddenLabel"}
 								},
-								"description": "Active concept only",
+								"description": "Hidden terms of concept (active concept only)",
 								"xml": {"name": "hiddenLabels","wrapped": true}
 							}
 						}
 					}
-				]
+				],
+				"xml": {"name": "Concept"}
 			},
 			"Concept": {
 				"allOf": [
@@ -800,22 +790,18 @@
 					{
 						"type": "object",
 						"properties": {
-							"uri": {"type": "string", "format": "uri"},
-							"inScheme": {"type": "string", "format": "uri", "description": "Active concept only"},
-							"resourceType": {
-								"type": "array",
-								"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
-								"xml": {"name":"resourceTypes","wrapped":true}
-							},
-							"mainEntityOfPage": {"type": "string", "format": "uri", "description": "Active concept only"},
-							"created": {"allOf":[{"$ref": "#/components/schemas/Date"}], "description": "Active concept only"},
-							"modified": {"$ref": "#/components/schemas/Date"},
-							"deprecated": {"type": "boolean"},
+							"uri": {"type": "string", "format": "uri", "description": "Concept URI"},
+							"inScheme": {"type": "string", "format": "uri", "description": "Concept scheme URI (active concept only)"},
+							"resourceType": {"$ref": "#/components/schemas/ResourceTypesArray"},
+							"mainEntityOfPage": {"type": "string", "format": "uri", "description": "URL of concept page on Nomenclature website (active concept only)"},
+							"created": {"allOf":[{"$ref": "#/components/schemas/Date"}], "description": "Creation date (active concept only)"},
+							"modified": {"allOf":[{"$ref": "#/components/schemas/Date"}], "description": "Last modified date"},
+							"deprecated": {"type": "boolean", "description": "Indicator of deprecation"},
 							"isReplacedBy": {
 								"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],
-								"description": "Deprecated concept only"
+								"description": "Concept replacing deprecated concept (deprecated concept only)"
 							},
-							"notation": {"type": "string", "description": "Active concept only"},
+							"notation": {"type": "string", "description": "Identifier from Parks Canada's Descriptive and Visual Dictionary of Objects (DVDO) (active concept only)"},
 							"label": {
 								"type": "array",
 								"items": {
@@ -823,7 +809,7 @@
 									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
 									"xml": {"name":"label"}
 								},
-								"description": "Deprecated concept only",
+								"description": "Labels of concept (deprecated concept only)",
 								"xml": {"name": "labels","wrapped": true}
 							},
 							"prefLabel": {
@@ -831,23 +817,25 @@
 								"items": {
 									"type": "object",
 									"properties": {
-										"uri": {"type": "string", "format": "uri"},
+										"uri": {"type": "string", "format": "uri", "description": "Preferred term URI"},
 										"literalForm": {"$ref": "#/components/schemas/Literal"},
 										"contributor": {
 											"type": "array",
 											"items": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],"xml": {"name":"contributor"}},
+											"description": "Contributors of preferred term",
 											"xml": {"name":"contributors","wrapped":true}
 										},
 										"citation": {
 											"type": "array",
 											"items": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],"xml": {"name":"citation"}},
+											"description": "Sources of preferred term",
 											"xml": {"name":"citations","wrapped":true}
 										},
-										"gender": {"type": "string", "enum": ["m","f"]}
+										"gender": {"type": "string", "enum": ["m","f"], "description": "Gender of French preferred terms"}
 									},
 									"xml": {"name":"prefLabel"}
 								},
-								"description": "Active concept only",
+								"description": "Preferred terms of concept (active concept only)",
 								"xml": {"name":"prefLabels","wrapped":true}
 							},
 							"altLabel": {
@@ -856,11 +844,11 @@
 									"type": "object",
 									"properties": {
 										"literalForm": {"$ref": "#/components/schemas/Literal"},
-										"type": {"type": "string", "enum": ["inverse"]}
+										"type": {"type": "string", "enum": ["inverse"], "description": "Indicator of inverted term"}
 									},
 									"xml": {"name":"altLabel"}
 								},
-								"description": "Active concept only",
+								"description": "Alternative terms of concept (active concept only)",
 								"xml": {"name":"altLabels","wrapped":true}
 							},
 							"hiddenLabel": {
@@ -870,17 +858,17 @@
 									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
 									"xml": {"name":"hiddenLabel"}
 								},
-								"description": "Active concept only",
+								"description": "Hidden terms of concept (active concept only)",
 								"xml": {"name":"hiddenLabels","wrapped":true}
 							},
 							"image": {
 								"type": "array", 
 								"maxItems": 4,
 								"items": {"$ref": "#/components/schemas/Image"},
-								"description": "Active concept only",
+								"description": "Images of concept (active concept only)",
 								"xml": {"name":"images","wrapped":true}
 							},
-							"isPartOf": {"allOf":[{"$ref": "#/components/schemas/Level"}], "description": "Active concept only"},
+							"isPartOf": {"allOf":[{"$ref": "#/components/schemas/Level"}], "description": "Level of concept in the hierarchy (active concept only)"},
 							"position": {
 								"type": "array",
 								"minItems": 6,
@@ -888,26 +876,27 @@
 								"items": {
 									"type": "object",
 									"properties": {
-										"uri": {"type": "string", "format": "uri"},
-										"value": {"type": "string"},
+										"uri": {"type": "string", "format": "uri", "description": "Sorting order URI"},
+										"value": {"type": "string", "description": "Sorting order value"},
 										"type": {
 											"type": "string", 
-											"enum": ["en","enInv","enCa","enCaInv","fr","frCa"]
+											"enum": ["en","enInv","enCa","enCaInv","fr","frCa"],
+											"description": "Language tag and term order of preferred term to which the sort is applied"
 										}
 									},
 									"xml": {"name":"position"}
 								},
-								"description": "Active concept only",
+								"description": "Sorting order (active concept only)",
 								"xml": {"name":"positions","wrapped":true}
 							},
-							"topConceptOf": {"type": "string", "format": "uri", "description": "Active concept only"},
+							"topConceptOf": {"type": "string", "format": "uri", "description": "Concept Scheme URI (top-level concepts (Category) only)"},
 							"broader": {
 								"type": "array",
 								"items": {
 									"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],
 									"xml": {"name":"broader"}
 								}, 
-								"description": "Active concept only",
+								"description": "Direct parent concept (active concept only)",
 								"xml": {"name":"broaders","wrapped":true}
 							},
 							"narrower": {
@@ -916,7 +905,7 @@
 									"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],
 									"xml": {"name":"narrower"}
 								},
-								"description": "Active concept only",
+								"description": "Direct children concepts (active concept only)",
 								"xml": {"name":"narrowers","wrapped":true}
 							},
 							"definition": {
@@ -924,17 +913,18 @@
 								"items": {
 									"type": "object",
 									"properties": {
-										"uri": {"type": "string", "format": "uri"},
+										"uri": {"type": "string", "format": "uri", "description": "Definition URI"},
 										"literalForm": {"$ref": "#/components/schemas/Literal"},
 										"citation": {
 											"type": "array",
 											"items": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],"xml": {"name":"citation"}},
+											"description": "Sources of definition",
 											"xml": {"name":"citations","wrapped":true}
 										}
 									},
 									"xml": {"name":"definition"}
 								},
-								"description": "Active concept only",
+								"description": "Definition of concept (active concept only)",
 								"xml": {"name":"definitions","wrapped":true}
 							},
 							"scopeNote": {
@@ -944,30 +934,31 @@
 									"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
 									"xml": {"name":"scopeNote"}
 								},
-								"description": "Active concept only",
+								"description": "Scope note of concept (active concept only)",
 								"xml": {"name":"scopeNotes","wrapped":true}
 							},
 							"exactMatch": {
 								"type": "array",
 								"items": {"type": "string", "format": "uri", "xml": {"name":"exactMatch"}},
-								"description": "Active concept only",
+								"description": "External exact matches URI (active concept only)",
 								"xml": {"name":"exactMatches","wrapped":true}
 							},
 							"closeMatch": {
 								"type": "array",
 								"items": {"type": "string", "format": "uri", "xml": {"name":"closeMatch"}},
-								"description": "Active concept only",
+								"description": "External close matches URI (active concept only)",
 								"xml": {"name":"closeMatches","wrapped":true}
 							},
 							"citation": {
 								"type": "array",
 								"items": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],"xml": {"name":"citation"}}, 
-								"description": "Active concept only",
+								"description": "Concept's bibliographic references (active concept only)",
 								"xml": {"name":"citations","wrapped":true}
 							},
 							"changeNote": {
 								"type": "array",
 								"items": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}],"xml": {"name":"changeNote"}},
+								"description": "Concept history (change notes)",
 								"xml": {"name":"changeNotes","wrapped":true}
 							}
 						}
@@ -990,7 +981,7 @@
 						{
 							"type": "object",
 							"properties": {
-								"uri": {"type": "string", "format": "uri"},
+								"uri": {"type": "string", "format": "uri", "description": "Contributor URI"},
 								"name": {
 									"type": "array",
 									"items": {
@@ -998,18 +989,16 @@
 										"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
 										"xml": {"name":"name"}
 									},
+									"description": "Names of contributor",
 									"xml": {"name":"names","wrapped":true}
 								},
 						        "nick": {
 									"type": "array",
 									"items": {"type": "string", "xml": {"name": "nick"}},
+									"description": "Nicknames (usually acronyms) of contributor",
 									"xml": {"name":"nicks","wrapped":true}
 								},
-						        "resourceType": {
-									"type": "array",
-									"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
-									"xml": {"name":"resourceTypes","wrapped":true}
-								}
+						        "resourceType": {"$ref": "#/components/schemas/ResourceTypesArray"}
 					        }
 				        }
 					],
@@ -1025,7 +1014,7 @@
 						{
 							"type": "object",
 							"properties": {
-								"uri": {"type": "string", "format": "uri"},
+								"uri": {"type": "string", "format": "uri", "description": "Bibliographic reference URI"},
 								"bibliographicCitation": {
 									"type": "array",
 									"items": {
@@ -1033,15 +1022,12 @@
 										"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
 										"xml": {"name":"bibliographicCitation"}
 									},
+									"description": "Chicago style bibliographies",
 									"xml": {"name":"bibliographicCitations","wrapped":true}
 								},
-						        "url": {"type": "string","format": "uri"},
-						        "source": {"type": "string","format": "uri"},
-						        "resourceType": {
-									"type": "array",
-									"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
-									"xml": {"name":"resourceTypes","wrapped":true}
-								}
+						        "url": {"type": "string","format": "uri", "description": "URL of the bibliographic entry in CHIN’s Zotero library"},
+						        "source": {"type": "string","format": "uri", "description": "URL of source of the bibliograohic reference"},
+						        "resourceType": {"$ref": "#/components/schemas/ResourceTypesArray"}
 					        }
 				        }
 					],
@@ -1057,8 +1043,8 @@
 						{
 							"type": "object",
 							"properties": {
-								"uri": {"type": "string", "format": "uri"},
-								"createdDate": {"$ref": "#/components/schemas/Date"},
+								"uri": {"type": "string", "format": "uri", "description": "Change event URI"},
+								"createdDate": {"allOf":[{"$ref": "#/components/schemas/Date"}],"description": "Creation date of change event"},
 								"description": {
 									"type": "array",
 									"items": {
@@ -1066,6 +1052,7 @@
 										"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
 										"xml": {"name":"description"}
 									},
+									"description": "Descriptions of change event",
 									"xml": {"name":"descriptions","wrapped":true}
 								},
 								"label": {
@@ -1075,15 +1062,16 @@
 										"properties": {"literalForm": {"$ref": "#/components/schemas/Literal"}},
 										"xml": {"name":"label"}
 									},
+									"description": "Labels of change event",
 									"xml": {"name":"labels","wrapped":true}
 								},
-								"subjectOfChange": {"$ref": "#/components/schemas/EndpointRef"},
-						        "changeType": {"type": "string"},
-						        "resourceType": {
-									"type": "array",
-									"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
-									"xml": {"name":"resourceTypes","wrapped":true}
-								}
+								"subjectOfChange": {"allOf":[{"$ref": "#/components/schemas/EndpointRef"}], "description": "Concept subjected to the change"},
+						        "changeType": {
+						        	"type": "string",
+						        	"enum": ["create","remove","update","move"],
+						        	"description": "Type of change event"
+						        },
+						        "resourceType": {"$ref": "#/components/schemas/ResourceTypesArray"}
 					        }
 				        }
 					],
@@ -1099,7 +1087,6 @@
 						{
 							"type": "object",
 							"properties": {
-								"score": {"type": "number", "format": "float"},
 								"definition": {
 									"type": "array",
 									"items": {
@@ -1109,10 +1096,10 @@
 										},
 										"xml": {"name":"definition"}
 									},
-									"description": "Active concept only",
+									"description": "Definition of concept (active concept only)",
 									"xml": {"name":"definitions","wrapped":true}
 								},
-								"scopeNotes": {
+								"scopeNote": {
 									"type": "array",
 									"items": {
 										"type": "object",
@@ -1121,70 +1108,68 @@
 										},
 										"xml": {"name":"scopeNote"}
 									},
-									"description": "Active concept only",
+									"description": "Scope note of concept (active concept only)",
 									"xml": {"name":"scopeNotes","wrapped":true}
-								},
-						        "resourceType": {
-									"type": "array",
-									"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
-									"xml": {"name":"resourceTypes","wrapped":true}
 								}
-					        }
-				        }
+							}
+						}
 					],
 					"xml": {"name":"Concept"}
 				},
 				"xml": {"name":"Concepts","wrapped":true}
 			},
 			"Void": {
+				"required": ["self","license","dataDump"],
 				"type": "object",
 				"properties": {
-					"self": {"type": "string", "format": "uri"},
-					"uri": {"type": "string", "format": "uri"},
-					"resourceType": {
-						"type": "array",
-						"items": {"type": "string", "format": "uri","xml": {"name":"resourceType"}},
-						"xml": {"name":"resourceTypes","wrapped":true}
-					},
-					"created": {"$ref": "#/components/schemas/Date"},
-					"modified": {"$ref": "#/components/schemas/Date"},
+					"self": {"type": "string", "format": "uri", "description": "URL of resource API endpoint"},
+					"uri": {"type": "string", "format": "uri", "description": "Dataset URI"},
+					"resourceType": {"$ref": "#/components/schemas/ResourceTypesArray"},
+					"created": {"allOf":[{"$ref": "#/components/schemas/Date"}], "description": "Creation date of dataset"},
+					"modified": {"allOf": [{"$ref": "#/components/schemas/Date"}], "description": "Last modified date of dataset"},
 					"title": {
 						"type": "array",
 						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"title"}},
+						"description": "Titles of dataset",
 						"xml": {"name":"titles","wrapped":true}
 					},
-					"license": {"type": "string", "format": "uri"},
+					"license": {"type": "string", "format": "uri", "description": "License of dataset"},
 					"rights": {
 						"type": "array",
 						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"rightStatement"}},
+						"description": "Rights of dataset",
 						"xml": {"name":"rightStatements","wrapped":true}
 					},
 					"description": {
 						"type": "array",
 						"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"description"}},
+						"description": "Descriptions of dataset",
 						"xml": {"name":"descriptions","wrapped":true}
 					},
 					"dataDump": {
 						"type": "array",
 						"items": {"type": "string", "format": "uri", "xml": {"name":"dataDump"}},
+						"description": "URLs of data dumps",
 						"xml": {"name":"dataDumps","wrapped":true}
 					},
-					"entities": {"type": "integer"},
-					"triples": {"type": "integer"},
+					"entities": {"type": "integer", "description": "Number of active concepts"},
+					"triples": {"type": "integer", "description": "Number of triples"},
 					"rightsHolder": {
 						"type": "array",
 						"items": {
 							"type": "object",
 							"properties": {
-								"uri": {"type": "string", "format": "uri"},
+								"uri": {"type": "string", "format": "uri", "description": "Rights holder URI"},
 								"name": {
 									"type": "array",
 									"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+									"description": "Names of rights holder",
 									"xml": {"name":"names","wrapped":true}
 								}
 							},
 							"xml": {"name":"rightsHolder"}
 						},
+						"description": "Rights holders of dataset",
 						"xml": {"name":"rightsHolders","wrapped":true}			
 					},
 					"creator": {
@@ -1192,15 +1177,17 @@
 						"items": {
 							"type": "object",
 							"properties": {
-								"uri": {"type": "string", "format": "uri"},
+								"uri": {"type": "string", "format": "uri", "description": "Creator URI"},
 								"name": {
 									"type": "array",
 									"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+									"description": "Names of creator",
 									"xml": {"name":"names","wrapped":true}
 								}
 							},
 							"xml": {"name":"creator"}
 						},
+						"description": "Creators of dataset",
 						"xml": {"name":"creators","wrapped":true}								
 					},
 					"contributor": {
@@ -1208,15 +1195,17 @@
 						"items": {
 							"type": "object",
 							"properties": {
-								"uri": {"type": "string", "format": "uri"},
+								"uri": {"type": "string", "format": "uri", "description": "Contributor URI"},
 								"name": {
 									"type": "array",
 									"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+									"description": "Names of contributors",
 									"xml": {"name":"names","wrapped":true}
 								}
 							},
 							"xml": {"name":"contributor"}
 						},
+						"description": "Contributors of dataset",
 						"xml": {"name":"contributors","wrapped":true}								
 					},
 					"publisher": {
@@ -1224,15 +1213,17 @@
 						"items": {
 							"type": "object",
 							"properties": {
-								"uri": {"type": "string", "format": "uri"},
+								"uri": {"type": "string", "format": "uri", "description": "Publisher URI"},
 								"name": {
 									"type": "array",
 									"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+									"description": "Names of publishers",
 									"xml": {"name":"names","wrapped":true}
 								}
 							},
 							"xml": {"name":"publisher"}
 						},
+						"description": "Publishers of dataset",
 						"xml": {"name":"publishers","wrapped":true}					
 					},
 					"classPartition": {
@@ -1240,11 +1231,12 @@
 						"items": {
 							"type": "object",
 							"properties": {
-								"entities": {"type": "integer"},
-								"class": {"type": "string", "format": "uri"}
+								"entities": {"type": "integer", "description": "Number of entities as instance of class"},
+								"class": {"type": "string", "format": "uri", "description": "Class URI"}
 							},
 							"xml": {"name":"classPartition"}
 						},
+						"description": "Count of instances of selected classes (concepts, labels, images, concept scheme)",
 						"xml": {"name":"classPartitions","wrapped":true}				
 					},
 					"languagePartition": {
@@ -1252,11 +1244,12 @@
 						"items": {
 							"type": "object",
 							"properties": {
-								"triples": {"type": "integer"},
-								"language": {"type": "string"}
+								"triples": {"type": "integer", "description": "Number of terms by language"},
+								"language": {"type": "string", "description": "Language tag"}
 							},
 							"xml": {"name":"languagePartition"}
 						},
+						"description": "Count of terms by languages",
 						"xml": {"name":"languagePartitions","wrapped":true}			
 					},
 					"propertyPartition": {
@@ -1264,11 +1257,12 @@
 						"items": {
 							"type": "object",
 							"properties": {
-								"triples": {"type": "integer"},
-								"property": {"type": "string", "format": "uri"}
+								"triples": {"type": "integer", "description": "Number of deprecated concepts"},
+								"property": {"type": "string", "format": "uri", "description": "Property URI indicating deprecation"}
 							},
 							"xml": {"name":"propertyPartition"}
 						},
+						"description": "Count of deprecated concepts",
 						"xml": {"name":"propertyPartitions","wrapped":true}
 					},
 					"subset": {
@@ -1276,20 +1270,22 @@
 						"items": {
 							"type": "object",
 							"properties": {
-								"triples": {"type": "integer"},
-								"linkPredicate": {"type": "string", "format": "uri"},
+								"triples": {"type": "integer", "description": "Number of matches"},
+								"linkPredicate": {"type": "string", "format": "uri", "description": "Property URI indicating type of match"},
 								"target": {
 									"type": "object",
 									"properties": {
 										"name": {
-										"type": "array",
-										"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
-										"xml": {"name":"names","wrapped":true}
+											"type": "array",
+											"items": {"allOf":[{"$ref": "#/components/schemas/Literal"}],"xml": {"name":"name"}},
+											"description": "Names of matched external dataset",
+											"xml": {"name":"names","wrapped":true}
 									}}
 								}
 							},
 							"xml": {"name":"subset"}
 						},
+						"description": "Count of co-references per domain (external datasets)",
 						"xml": {"name":"subsets","wrapped":true}
 					}
 		        },
