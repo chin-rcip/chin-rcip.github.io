@@ -41,241 +41,110 @@
 	<body>
 		<h1>Nomenclature</h1>
 		<section>
-			<form action="" method="GET">
-				<select id="term-order">
-					<option value="natural" selected>Natural</option>
-					<option value="inverted">Inverted</option>
-				</select>
-				<select id="lang">
-					<option value="en" selected>English</option>
-					<option value="en-CA">Canadian English</option>
-					<option value="fr">French</option>
-					<option value="fr-CA">Canadian French</option>
-					<option value="es">Spanish</option>
-					<option value="iu">Inuktitut</option>
-					<option value="iu-Latn">Inuktitut (Latin)</option>
-				</select>
-				<div id="search">
-					<input type="search" name="termSearch" id="search-input"/>
-					<div id="search-list"></div>
-				</div>
-		    	<input type="submit" value="Display" disabled/>
+		    <form action="" method="GET">
+		        <!-- <select id="term-order">
+		            <option value="natural" selected>Natural</option>
+		            <option value="inverted">Inverted</option>
+		        </select> -->
+		        <select id="lang">
+		            <option value="en" selected>English</option>
+		            <option value="en-CA">Canadian English</option>
+		            <option value="fr">French</option>
+		            <option value="fr-CA">Canadian French</option>
+		            <option value="es">Spanish</option>
+		            <option value="iu">Inuktitut</option>
+		            <option value="iu-Latn">Inuktitut (Latin)</option>
+		        </select>
+		        <div id="search">
+		            <input type="search" name="termSearch" id="search-input"/>
+		            <div id="search-list"></div>
+		        </div>
+		        <input type="submit" value="Display" disabled/>
 		    </form>
-  		</section>
+		</section>
 
-  		<div id="concept-data"></div>
-		
+		<script>
+		    const searchInput = document.querySelector("#search-input");
+		    const searchList = document.querySelector("#search-list");
 
-		<script type="text/javascript">
-			const searchInput = document.querySelector("#search-input");
-			const searchList = document.querySelector("#search-list");
-			const concept = document.querySelector("#concept-data");
-			const fields = {
-				"isPartOf": "Level",
-			    "uri": "URI",
-			    "id": "Identifier",
-			    "inScheme": "Concept scheme",
-			    "mainEntityOfPage": "URL",
-			    "prefLabel": "Preferred term(s)",
-			    "altLabel": "Alternative term(s)",
-			    "created": "Date created",
-			    "modified": "Date updated",
-			    "deprecated": "Deprecation",
-			    "notation": "Parks Canada code",
-			    "definition": "Definition",
-			    "scopeNote": "Scope note",
-			    "exactMatch": "Other references (exact)",
-			    "closeMatch": "Other references (close)",
-			    "citation": "Source(s)",
-			    "bibliographicCitation": "Bib",
-			    "name": "Name"
-			}
-			const literal = ['prefLabel','label','description','bibliographicCitation'];
+		    function removeAllChildNodes(parent) {
+		        while (parent.firstChild) {
+		            parent.removeChild(parent.firstChild);
+		        }
+		    };
 
-			function removeAllChildNodes(parent) {
-			    while (parent.firstChild) {
-			        parent.removeChild(parent.firstChild);
-			    }
-			}
-			function displayResults(results) {
-				const language = document.querySelector("#lang").value;
-				const r = results[0];
-				// display term
-				if (r.display) {
-					if (language in r.display) {
-						concept.innerHTML += `<h2>${r['display'][language]}</h2>\n`;
-					} else {
-						const langRep = language.replace('-CA','').replace('-Latn','');
-						concept.innerHTML += `<h2>${r['display'][langRep]}</h2>\n`;
-					}
-				}
-				// image
-				if (r.image) {
-					const images = document.createElement('div')
-					for (const img of r.image) {
-						images.innerHTML += `<img src="${img.thumbnailUrl}" alt="${img.creditText[0].value}">\n`
-					}
-					concept.appendChild(images);
-				}
-				// other data
-				const dl = document.createElement('dl');
-				for (const k in fields) {
-					
-					if (r[k]) {
-						dl.innerHTML += `<dt>${fields[k]}</dt>\n`;
-						if (Array.isArray(r[k])) {
-							console.log(r[k])
-							
-							for (const v of r[k]) {
-								if (typeof v === 'object') {
-									const subDl = document.createElement('dl');
-									if (v.literalForm) {
-										const val = v.literalForm.value;
-										const lang = v.literalForm.language;
-										subDl.innerHTML += `<dt>${lang}</dt>\n`;
-										subDl.innerHTML += `<dd>${val}</dd>\n`;
-									} else if (v.value) {
-										const val = v.value;
-										const lang = v.language;
-										subDl.innerHTML += `<dt>${lang}</dt>\n`;
-										subDl.innerHTML += `<dd>${val}</dd>\n`;
-									}
-									if (v.self) {
-										getData(`${v.self}`+`?lang=${language}`)
-									}
-									if (v.contributor ){
-										// console.log(agent.self)
-										for (const agent of v.contributor) {
-											console.log(agent.self)
-											getData(`${agent.self}`+`?lang=${language}`)
-										}
-									}
-									if (v.citation ){
-										for (const source of v.citation) {
-											getData(`${source.self}`+`?lang=${language}`)
-										}
-									}
-									const dd = document.createElement('dd');
-									dd.appendChild(subDl);
-									dl.appendChild(dd);
-								} else if (typeof v === 'string') {
-									const dd = document.createElement('dd');
-									dd.innerHTML += `${v}\n<br>\n`;
-									dl.appendChild(dd)
-								}								
-							}							
-						} else if (typeof r[k] === 'object' && r[k] instanceof Object) {
-							if (r[k]['prefLabel']) {
-								dl.innerHTML += `<dd>${r[k]['prefLabel'][0].value}</dd>\n`;
-							} else if (r[k]['label']) {
-								dl.innerHTML += `<dd>${r[k]['label'][0].value}</dd>\n`;
-							} else {
-								dl.innerHTML += `<dd></dd>\n`;
-							}
-						} else {
-							if (r[k].startsWith('http')) {
-								dl.innerHTML += `<dd><a href="${r[k]}">${r[k]}</a></dd>\n`;
-							} else {
-								dl.innerHTML += `<dd>${r[k].toString()}</dd>\n`;
-							}
-						} 
-					} else {
-						dl.innerHTML += `<dd></dd>\n`;
-					}
-				}
-				concept.appendChild(dl);
-				
-			}
+		    function parse(data){
+		        // const termOrder = document.querySelector("#term-order").value;
+		        if (data.length > 0) {
+		            for (const r of data) {
+		                if (r.prefLabel) {
+		                    const display = {};
+		                    const pageUrl = r.mainEntityOfPage;
 
-			function parse(data){
-				const termOrder = document.querySelector("#term-order").value;
-				if (data.length > 0) {
-					for (const r of data) {
-						if (r.prefLabel) {
-							const display = {};
-							const pageUrl = r.mainEntityOfPage;
+		                    for (label of r.prefLabel) {
+		                        const val = label.literalForm.value;
+		                        const lang = label.literalForm.language;
+		                        display[lang] = val;
+		                    }
 
-							for (label of r.prefLabel) {
-								const val = label.literalForm.value;
-								const lang = label.literalForm.language;
-								display[lang] = val;
-							}
+		                    // if (termOrder == 'inverted' && 'altLabel' in r) {
+		                    //     for (alt of r.altLabel) {
+		                    //         const altVal = alt.literalForm.value;
+		                    //         const altLang = alt.literalForm.language;
+		                    //         // missing type in search api result
+		                    //         // if (alt.type){
+		                    //         //  display[altLang] = altVal;
+		                    //         // }
+		                    //         if (altVal.includes(', ')){
+		                    //             display[altLang] = altVal;
+		                    //         }
+		                    //     }
+		                    // }
+		                    r['display'] = display;
+		                }
+		            }
+		        }
+		        // console.log(data)
+		        return data 
+		    };
 
-							if (termOrder == 'inverted' && 'altLabel' in r) {
-								for (alt of r.altLabel) {
-									const altVal = alt.literalForm.value;
-									const altLang = alt.literalForm.language;
-									// missing type in search api result
-									// if (alt.type){
-									// 	display[altLang] = altVal;
-									// }
-									if (altVal.includes(', ')){
-										display[altLang] = altVal;
-									}
-								}
-							}
-							r['display'] = display;
-						}
-					}
-				}
-				// console.log(data)
-				return data	
-			}
+		    searchInput.addEventListener("input", () => {
+		        removeAllChildNodes(searchList);
+		        
+		        const query = encodeURIComponent(searchInput.value);
+		        const language = document.querySelector("#lang").value;
+		        const url = "https://nomenclature.info/api/v1/search?"
+		                    + "termSearch=" + query
+		                    + "&lang=" + language;
 
-			searchInput.addEventListener("input", () => {
-				removeAllChildNodes(searchList);
-				
-				const query = encodeURIComponent(searchInput.value);
-				const language = document.querySelector("#lang").value;
-				const rq = "https://nomenclature.info/api/v1/search?"
-							+ "termSearch=" + query
-							+ "&lang=" + language;
-
-				fetch(rq, {
-					headers: {
-				      "Accept": "application/json"
-				    }
-				})
-				.then(response => response.json())
-				.then(data => parse(data))
-				.then(results => {
-					for (const r of results) {
-						const display = r['display'];
-						if (language in display) {
-							// searchList.innerHTML += `<div><a href="${pageUrl}" target="_blank">${display[language]} (${language})</a></div>\n`;
-							const rq = r.self + "?lang=" + language;
-							searchList.innerHTML += `<div onclick="getData('${rq}')">${display[language]} (${language})</div>\n`;
-						} else {
-							const langRep = language.replace('-CA','').replace('-Latn','');
-							const rq = r.self + "?lang=" + langRep;
-							// searchList.innerHTML += `<div><a href="${pageUrl}" target="_blank">${display[langRep]} (${langRep})</a></div>\n`;
-							searchList.innerHTML += `<div onclick="getData('${rq}')">${display[langRep]} (${langRep})</div>\n`;
-						}
-					}
-				})
-				
-			});
-			/*execute a function when someone clicks in the document:*/
-			document.addEventListener("click", () => {
-			    removeAllChildNodes(searchList);
-			});
-
-			// when an item of search result is selected
-			function getData(rq){
-				// const language = document.querySelector("#lang").value;
-				// const rq = "https://nomenclature.info/api/v1/concepts/" 
-				// 			+ id
-				// 			+ "?lang=" + language;
-
-				fetch(rq, {
-					headers: {
-				      "Accept": "application/json"
-				    }
-				})
-				.then(response => response.json())
-				.then(data => parse(data))
-				.then(results => displayResults(results))
-			}
+		        let xhr = new XMLHttpRequest();
+		        xhr.open('GET',url,true)
+		        xhr.setRequestHeader('Accept', 'application/json');
+		        xhr.onreadystatechange = function() {
+		            if (this.readyState == 4 && this.status == 200) {
+		                // Typical action to be performed when the document is ready:
+		                let results = parse(JSON.parse(this.response));
+		                for (const r of results) {
+		                    const display = r['display'];
+		                    if (language in display) {
+		                        const rq = r.self + "?lang=" + language;
+		                        searchList.innerHTML += `<div onclick="getData('${rq}')">${display[language]} (${language})</div>\n`;
+		                    } else {
+		                        const langRep = language.replace('-CA','').replace('-Latn','');
+		                        const rq = r.self + "?lang=" + langRep;
+		                        // searchList.innerHTML += `<div><a href="${pageUrl}" target="_blank">${display[langRep]} (${langRep})</a></div>\n`;
+		                        searchList.innerHTML += `<div onclick="getData('${rq}')">${display[langRep]} (${langRep})</div>\n`;
+		                    }
+		                }
+		            }
+		        };
+		        xhr.send();
+		        
+		    });
+		    /*execute a function when someone clicks in the document:*/
+		    document.addEventListener("click", () => {
+		        removeAllChildNodes(searchList);
+		    });
 
 		</script>
 
