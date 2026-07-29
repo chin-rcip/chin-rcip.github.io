@@ -1,0 +1,99 @@
+
+<header class="site-header" role="banner">
+
+  <div class="wrapper">
+    {%- assign default_paths = site.pages | map: "path" -%}
+    {% if page.language == "en" %}
+      {%- assign page_paths = site.header_pages_en -%}
+      {%- assign site_title = site.title -%}
+      {%- assign site_link = '/' | relative_url | append: 'en' -%}
+      {%- assign header_groups = "specifications, resources:how-to, technical reports" | split: ", " -%}
+      {%- assign other_link = page.other_link -%}
+      {%- assign language = "FR" -%}
+    {% elsif page.language == "fr" %}
+      {%- assign page_paths = site.header_pages_fr -%}
+      {%- assign site_title = site.titre -%}
+      {%- assign site_link = '/' | relative_url | append: 'fr' -%}
+      {%- assign header_groups = "spécifications, ressources:mode d'emploi, rapports techniques" | split: ", " -%}
+      {%- assign other_link = page.other_link -%}
+      {%- assign language = "EN" -%}
+    {% else %}
+      {%- assign site_title = site.title | append: ' - ' | append: site.titre -%}
+      {%- assign site_link = '/' | relative_url -%}
+    {% endif %}
+    <div style="display: flex; flex-flow: column; float: left;">
+    <a class="site-title" rel="author" href="{{ site_link }}" style="line-height: inherit;">{{ site_title | escape }}</a>
+    </div>
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          <a class="page-link" id="search-icon">&#128269;</a>
+        {%- if page_paths -%}
+          {%- for path in page_paths -%}
+            {%- assign my_page = site.pages | where: "path", path | first -%}
+            {%- if my_page.title -%}
+              {%- unless my_page.group -%}
+                <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+              {%- endunless -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+
+          {%- if header_groups -%}
+          {%- for groups in header_groups -%}
+          {%- assign group = groups | split: ":" -%}
+          {%- assign subgroups = group[1] | split: "/" -%}
+            <div class="has-dropdown page-link">{{ group[0] | capitalize }} &#9662;
+              <div class="dropdown">
+                {%- for path in page_paths -%}
+                {%- assign my_page = site.pages | where: "path", path | first -%}
+                {%- if my_page.title and my_page.group -%}
+                  {%- if my_page.group == group[0] -%}
+                    {%- unless my_page.subgroup -%}
+                    <a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+                    {%- endunless -%}
+                  {%- endif -%}
+                {%- endif -%}
+                {%- endfor -%}
+
+                {%- if subgroups -%}
+                {%- for subgroup in subgroups -%}
+                <div class="has-dropdown">{{ subgroup | capitalize }} &#9662;
+                  <div class="dropdown">
+                    {%- for path in page_paths -%}
+                    {%- assign my_page = site.pages | where: "path", path | first -%}
+                    {%- if my_page.title and my_page.subgroup -%}
+                      {%- if my_page.subgroup == subgroup%}
+                        <a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+                      {%- endif -%}
+                    {%- endif -%}
+                    {%- endfor -%}
+                  </div>
+                </div>
+                {%- endfor -%}
+                {%- endif -%}
+              </div>
+            </div>
+          {%- endfor -%}
+          {%- endif -%}
+        {%- endif -%}
+          <div class="lang-buttons page-link">
+            <a href="{{ other_link }}">{{ language }}</a>
+          </div>
+        </div>
+       
+      </nav>
+    
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</header>
