@@ -1,4 +1,13 @@
-# Terms of Use
+---
+layout: page
+language: en
+title: Terms of Use
+permalink: /en/terms-policies
+other_link: /fr/termes-politiques
+date: 2026-09-23
+---
+
+
 ---
 ## Re-using content on this site
 
@@ -31,4 +40,4 @@ CHIN retains the right to remove, add, amend or modify all content in any sectio
 
 The purpose of this site is to transparently make available working documentation and tools associated to the modernization of Artefacts Canada for the benefit of all. As such the contents found here might not be fully effective, tested, or maintained.
 
-_Last updated: 2026-09-23
+_Last updated: 2026-09-23_

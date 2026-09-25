@@ -1,4 +1,14 @@
-# Terms of Reference: Advisory Committee on a National Portal for Museum Collections
+---
+layout: page
+language: en
+title: Terms of Reference
+permalink: /en/advisory-committee/terms-of-reference
+other_link: /fr/comite-consultatif/mandat
+group: advisory committee
+date: 2026-05-15
+---
+
+# Advisory Committee on a National Portal for Museum Collections
 
 _Below is a copy of the terms of reference that will guide the committee in it's inaugral year. The terms are subject to revision and maye be changed or updated for future iterations of the committee, as deemed necessary by its members._
 

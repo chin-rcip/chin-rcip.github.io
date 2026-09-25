@@ -1,4 +1,13 @@
-# Conditions d’utilisation
+---
+layout: page
+language: fr
+title: Conditions d’utilisation
+permalink: /fr/termes-politiques
+other_link: /en/terms-policies
+date: 2026-09-23
+---
+
+
 ---
 ## Réutiliser le contenu de ce site
 
@@ -30,4 +39,4 @@ Le RCIP se réserve le droit de retirer, d’ajouter, d’amender ou de modifier
 
 L’objectif de ce site est de rendre disponibles de manière transparente la documentation de travail et les outils associés à la modernisation d’Artefacts Canada pour le bénéfice de tous. En tant que tel, le contenu trouvé ici pourrait ne pas être pleinement efficace, testé ou maintenu. 
 
-_Dernière mise à jour : 2026-09-23
+_Dernière mise à jour : 2026-09-23_

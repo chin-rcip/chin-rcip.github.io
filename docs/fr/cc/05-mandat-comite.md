@@ -1,4 +1,14 @@
-# Mandat : Comité consultatif sur un portail national pour les collections de musée
+---
+layout: page
+language: fr
+title: Mandat
+permalink: /fr/comite-consultatif/mandat
+other_link: /en/advisory-committee/terms-of-reference
+group: comité consultatif
+date: 2026-05-15
+---
+
+# Comité consultatif sur un portail national pour les collections de musée
 
 _Vous trouverez ci-dessous une copie du mandat qui guidera le comité au cours de sa première année d’existence. Ce mandat est susceptible d’être révisé et pourra être modifié ou mis à jour lors des futures itérations du comité, selon les besoins jugés nécessaires par ses membres._
 

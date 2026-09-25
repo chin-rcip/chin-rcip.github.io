@@ -1,4 +1,12 @@
-# Membres du comité
+---
+layout: page
+language: fr
+title: Membres du comité
+permalink: /fr/comite-consultatif/membres-du-comite
+other_link: /en/advisory-committee/committee-members
+group: comité consultatif
+date: 2026-05-15
+---
 
 _En mai 2026, le RCIP a lancé un appel de candidatures auprès des professionnels du patrimoine au Canada intéressés à participer à un comité consultatif chargé d’orienter le développement d’un nouveau portail national des collections muséales. Nous avons reçu un très grand nombre de manifestations d’intérêt, et les personnes proposées étaient, dans leur immense majorité, hautement qualifiées, avec des intérêts professionnels et une expérience étroitement alignés sur les objectifs du projet._
 

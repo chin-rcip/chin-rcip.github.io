@@ -1,4 +1,11 @@
-# Trousses de numérisation
+---
+layout: page
+language: fr
+title: Trousses de numérisation
+permalink: /fr/trousses-de-numerisation
+other_link: /en/digitization-kits
+date: 2026-09-15
+---
 
 _Cette page décrit un projet pilote actuellement en cours visant à offrir des trousses de numérisation en prêt aux établissements du patrimoine intéressés._
 

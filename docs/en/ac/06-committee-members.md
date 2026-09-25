@@ -1,4 +1,12 @@
-# Committee Members
+---
+layout: page
+language: en
+title: Committee Members
+permalink: /en/advisory-committee/committee-members
+other_link: /fr/comite-consultatif/membres-du-comite
+group: advisory committee
+date: 2026-10-23
+---
 
 _In May of 2026 CHIN launched a call for nominations of heritage professionals in Canada interested in participating in an advisroy committee to help guide the development of a new national portal for museum collections. We received a significant amount of interest in participating, and the nominees were overwhelmingly highly qualified, with professional interests and experience well aligned to our project._
 

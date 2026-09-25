@@ -6,15 +6,17 @@
     {% if page.language == "en" %}
       {%- assign page_paths = site.header_pages_en -%}
       {%- assign site_title = site.title -%}
+      {%- assign site_subtitle = site.subtitle -%}
       {%- assign site_link = '/' | relative_url | append: 'en' -%}
-      {%- assign header_groups = "specifications, resources:how-to, technical reports" | split: ", " -%}
+      {%- assign header_groups = "advisory committee" | split: ", " -%}
       {%- assign other_link = page.other_link -%}
       {%- assign language = "FR" -%}
     {% elsif page.language == "fr" %}
       {%- assign page_paths = site.header_pages_fr -%}
       {%- assign site_title = site.titre -%}
+      {%- assign site_subtitle = site.soustitre -%}
       {%- assign site_link = '/' | relative_url | append: 'fr' -%}
-      {%- assign header_groups = "spécifications, ressources:mode d'emploi, rapports techniques" | split: ", " -%}
+      {%- assign header_groups = "comité consultatif" | split: ", " -%}
       {%- assign other_link = page.other_link -%}
       {%- assign language = "EN" -%}
     {% else %}
@@ -22,7 +24,10 @@
       {%- assign site_link = '/' | relative_url -%}
     {% endif %}
     <div style="display: flex; flex-flow: column; float: left;">
-    <a class="site-title" rel="author" href="{{ site_link }}" style="line-height: inherit;">{{ site_title | escape }}</a>
+      <a class="site-title" rel="author" href="{{ site_link }}" style="line-height: inherit;">
+        {{ site_title | escape }}<br>
+        <span style="font-size:  18px">{{ site_subtitle | escape }}</span>
+      </a>
     </div>
     
       <nav class="site-nav">

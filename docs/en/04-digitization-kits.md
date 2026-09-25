@@ -1,4 +1,12 @@
-# Digitization Kits
+---
+layout: page
+language: en
+title: Digitization Kits
+permalink: /en/digitization-kits
+other_link: /fr/trousses-de-numerisation
+date: 2026-09-15
+---
+
 
 _This page describes a pilot project we're testing out at the moment to lend digitization kits out to interested heritage institutions._
 
@@ -47,4 +55,4 @@ What you will need to complete the form:
 - A statement of anticipated benefits and uses of this loan;
 - When you would like to have a kit.
 
-_Last updated: YYYY-MM-DD_
+_Last updated: 2026-09-15_
