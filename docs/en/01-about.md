@@ -4,7 +4,7 @@ language: en
 title: About the project
 permalink: /en/about
 other_link: /fr/a-propos
-date: 2026-08-19
+date: 2026-09-28
 ---
 
 The Canadian Heritage Information Network (CHIN) is at the beginning of an ambitious, multi-year project to modernize the national portal for museum collections, Artefacts Canada. The primary goal of this project is to better support the digital capacity of museums across the country by helping them create, prepare and share data about their collections. Core elements of the project include: (1) simplifying the data contribution process, (2) enhancing the accessibility and discoverability of museum collections online (both humanities and natural sciences) in Canada, and (3) offering a more intuitive and engaging interface for public users.
@@ -26,8 +26,8 @@ While we will continue to work with these collaborators, we are currently priori
 
 ## Get in touch
 
-If your institution is interested in collaborating with us on this project, please get in touch (_Link comming soon_)!
+If your institution is interested in collaborating with us on this project, please get in touch with us at : rcip-chin@pch.gc.ca
 
-You can also send us your thoughts (interests, concerns, etc.) about the project, seperate from any institutional affiliation : (LINK: Get in touch with us about the project)
+You can also send us your thoughts (interests, concerns, etc.) about the project, seperate from any institutional affiliation : [https://forms-formulaires.alpha.canada.ca/en/id/cmsotr8nf00iv01xdebkmr9z4](https://forms-formulaires.alpha.canada.ca/en/id/cmsotr8nf00iv01xdebkmr9z4)
 
-_Last updated: 2026-08-19_
+_Last updated: 2026-09-28_
