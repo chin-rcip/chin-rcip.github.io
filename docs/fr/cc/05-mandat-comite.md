@@ -5,7 +5,7 @@ title: Mandat
 permalink: /fr/comite-consultatif/mandat
 other_link: /en/advisory-committee/terms-of-reference
 group: comité consultatif
-date: 2026-05-15
+date: 2026-09-28
 ---
 
 # Comité consultatif sur un portail national pour les collections de musée
@@ -109,4 +109,4 @@ Les réunions se tiennent conformément aux critères suivants :
 - Le comité peut inviter des experts et expertes à ses réunions avec l’accord préalable du président ou de la présidente.
 - La participation des membres au comité n’est pas rémunérée.
 
-_Last updated: 2026-05-15_
+_Last updated: 2026-09-28_
