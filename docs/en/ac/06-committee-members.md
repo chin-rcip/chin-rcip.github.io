@@ -5,7 +5,7 @@ title: Committee Members
 permalink: /en/advisory-committee/committee-members
 other_link: /fr/comite-consultatif/membres-du-comite
 group: advisory committee
-date: 2026-10-23
+date: 2026-10-28
 ---
 
 _In May of 2026 CHIN launched a call for nominations of heritage professionals in Canada interested in participating in an advisroy committee to help guide the development of a new national portal for museum collections. We received a significant amount of interest in participating, and the nominees were overwhelmingly highly qualified, with professional interests and experience well aligned to our project._
@@ -14,10 +14,10 @@ _Members were selected in aim of ensuring that the committee (1) reflects the wi
 
 ---
 
-####  List of current advisory committee members
+###  List of current advisory committee members
 
 **Blythe Appleby** (Ross Farm Museum)
-  - _Professional bio coming soon_
+  - _Blythe Appleby is the Collections Manager and Period Clothing Specialist at Ross Farm Museum, Nova Scotia.  As a University graduate in History and Heritage Resources Management, she has had over 10 years’ experience in the heritage sector, working in various roles from museum interpretation to exhibit planning.  Since 2023, she has managed the Nova Scotia Museum’s vast agricultural artifact collection at Ross Farm Museum, where she is gaining considerable experience working with a variety of collections databases and portals, such as CollectionsIndex+, Nova Scotia Museum’s Collections Online, and NovaMuse.  During her tenure, she has developed a passion for documentation and information sharing, and is excited to bring this passion to the advisory committee for CHIN’s national museum collections portal.  She represents Ross Farm Museum on provincial committees such as the Nova Scotia Museum’s Collections Management Working Group, and Interpretation Working Group._
 
 **Catherine C. Cole** (Catherine C. Cole & Associates)
 - _Catherine Cole has worked throughout Canada and internationally for more than 30 years. She facilitated consultations for CHIN when the VMC was being established and conducted a review of Artefacts Canada in the early 2000s. She has guest-curated two VMC exhibitions, Before E-Commerce: The History of Mail Order Catalogues in Canada and GWG: Piece by Piece. She has developed Community Collections, virtual sites about Edmonton neighbourhoods – Mill Woods Living Heritage and Edmonton Packingtown. Catherine has managed public collections, guest-curated exhibitions, conducted independent research, and taught museum studies. As a consultant, she reviews material and makes recommendations on the overall direction of museums or projects through strategic planning or program reviews. She has consulted on subjects relating to Indigenous, immigrant, women’s or labour history. She has written several books, including GWG: Piece by Piece (2012), and is currently writing Mill Woods: A City Within a City. Catherine is a member of the Executive Board of the International Council of Museums (ICOM) and recently served on the Working Group on Decolonisation and the Jury for the International Award for Sustainable Development Practice in Museums. She is also on the Preservation and Access Committee of the Canada Knowledge Research Network._
@@ -28,7 +28,7 @@ _Members were selected in aim of ensuring that the committee (1) reflects the wi
 **Cindy Veilleux** (Musée d’art contemporain de Montréal)
   - _Cindy Veilleux is Head of Digital Collections at the Musée d’art contemporain de Montréal (MAC), where she is working, since 2015, to promote contemporary art through the development of digital content and initiatives that facilitate access to, sharing of, and engagement with the Museum’s collections. She actively participates in committees focused on discoverability and digital innovation, while also helping to strengthen the presence of artists on Wikidata. Her work has supported important digitization, data centralization and standardization initiatives as well as impactful projects such as MACrépertoire, an evolving  platform giving acces to a vast ensemble of artworks and ressources related to MAC's programming and collections. From 2006 to 2014, she held project management and communications positions at the société des musées du Québec, and coordinated the first États Généraux of Québec museums. Between 2005 and 2010, she collaborated with the MAC to elaborate a Cataloguing Guide for New Media Collections for the Documentation and Conservation of the Media Arts Heritage (DOCAM), thereby contributing to the advancement of documentation practices._
 
-**Emmanuel Chateau-Dutier** (Department of Art History, Université de Montréal)
+**Emmanuel Château-Dutier** (Department of Art History, Université de Montréal)
 - _Emmanuel Château-Dutier is a historian of architecture and Associate Professor in Digital Museology at the Université de Montréal. His research focuses on the administration of public architecture in nineteenth-century France, as well as on digital art history and museology. He has contributed to several major collective research projects in art history that place digital technologies and web-based tools at the heart of scholarly practice. Notably, he directed the digital edition of Antoine Desgodets’ Cours (ANR Desgodets) and is a principal collaborator on the Guides de Paris project within the Labex Les Passés dans le présent. He is currently completing an ANR project with Robert Carvais, Valérie Nègre, and Michela Barbot on Parisian experts in the eighteenth century. He also leads the digital axis of the partnership New uses of collections in art museums* and co-directs the Ouvroir d’histoire de l’art et de muséologie numériques. Within this laboratory, research at the intersection of digital tools, web technologies, art historical scholarship, and museology is actively explored, enabling the design of innovative interfaces and digital frameworks that support new forms of narrative, analysis, and exhibition in both research and museum contexts._
 
 **Heather Courtney** (National Gallery of Canada)
@@ -46,4 +46,4 @@ _Members were selected in aim of ensuring that the committee (1) reflects the wi
 **Valerie Chartrand** (Ingenium)
   - _Valerie Chartrand has extensive experience in digital communications, strategic planning, and digital product development within the cultural sector. In her current role at Ingenium, she leads the development and management of digital products for three national museums: the Canada Science and Technology Museum, the Canada Agriculture and Food Museum, and the Canada Aviation and Space Museum. Throughout my career, she has also worked for the Canadian Heritage Information Network, Parks Canada, the National Gallery and the Museums of History and War, where she has led and contributed to numerous large-scale digital projects in collaboration with national and international partners. Her work combines creativity and strategic thinking to develop innovative digital initiatives that foster public engagement with heritage and culture._
 
-_Last updated: 2026-10-23_
+_Last updated: 2026-10-28_
