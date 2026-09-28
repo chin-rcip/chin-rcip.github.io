@@ -45,9 +45,8 @@ For now, there is only one version of digitization kits available. The kit inclu
 
 ## Register your institution to participate
 
-Interested in participating? Complete the form below to register your institution and CHIN will follow up with details.
-
-_Link comming soon_
+Interested in participating? Complete the following form  to register your institution and CHIN will follow up with details:
+[https://forms-formulaires.alpha.canada.ca/en/id/cmsyp41p7008i01x62c5zf1u6](https://forms-formulaires.alpha.canada.ca/en/id/cmsyp41p7008i01x62c5zf1u6)
 
 What you will need to complete the form:
 - Contact information for the person at your isntitution responsible for the request;
@@ -55,4 +54,4 @@ What you will need to complete the form:
 - A statement of anticipated benefits and uses of this loan;
 - When you would like to have a kit.
 
-_Last updated: 2026-09-15_
+_Last updated: 2026-09-28_
