@@ -7,7 +7,7 @@ language: en
 title: Artefacts Canada Modernisation
 permalink: /en
 other_link: /fr
-date: 2026-08-19
+date: 2026-09-28
 ---
 
 
@@ -30,8 +30,8 @@ While we will continue to work with these collaborators, we are currently priori
 
 ## Get in touch
 
-If your institution is interested in collaborating with us on this project, please get in touch (_Link comming soon_)!
+If your institution is interested in collaborating with us on this project, please get in touch : rcip-chin@pch.gc.ca
 
-You can also send us your thoughts (interests, concerns, etc.) about the project, seperate from any institutional affiliation : (LINK: Get in touch with us about the project)
+You can also send us your thoughts (interests, concerns, etc.) about the project, seperate from any institutional affiliation : [https://forms-formulaires.alpha.canada.ca/en/id/cmsotr8nf00iv01xdebkmr9z4](https://forms-formulaires.alpha.canada.ca/en/id/cmsotr8nf00iv01xdebkmr9z4)
 
-_Last updated: 2026-08-19_
+_Last updated: 2026-09-28_
