@@ -4,7 +4,7 @@ language: en
 title: Digitization Kits
 permalink: /en/digitization-kits
 other_link: /fr/trousses-de-numerisation
-date: 2026-09-15
+date: 2026-09-28
 ---
 
 
