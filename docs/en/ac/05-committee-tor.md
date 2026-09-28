@@ -5,7 +5,7 @@ title: Terms of Reference
 permalink: /en/advisory-committee/terms-of-reference
 other_link: /fr/comite-consultatif/mandat
 group: advisory committee
-date: 2026-05-15
+date: 2026-09-28
 ---
 
 # Advisory Committee on a National Portal for Museum Collections
@@ -109,4 +109,4 @@ Meetings are held in accordance with the following criteria:
 - The committee can invite experts to any meeting with prior approval from the Chair.
 - Service on the committee is unpaid.
 
-_Last updated: 2026-05-15_
+_Last updated: 2026-09-28_
