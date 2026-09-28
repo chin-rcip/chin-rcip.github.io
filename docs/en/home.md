@@ -32,6 +32,6 @@ While we will continue to work with these collaborators, we are currently priori
 
 If your institution is interested in collaborating with us on this project, please get in touch : rcip-chin@pch.gc.ca
 
-You can also send us your thoughts (interests, concerns, etc.) about the project, seperate from any institutional affiliation : [https://forms-formulaires.alpha.canada.ca/en/id/cmsotr8nf00iv01xdebkmr9z4](https://forms-formulaires.alpha.canada.ca/en/id/cmsotr8nf00iv01xdebkmr9z4)
+You can also send us your thoughts (interests, concerns, etc.) about the project, seperate from any institutional affiliation : [[https://forms-formulaires.alpha.canada.ca/en/id/cmsotr8nf00iv01xdebkmr9z4](https://forms-formulaires.alpha.canada.ca/en/id/cmsotr8nf00iv01xdebkmr9z4)]
 
 _Last updated: 2026-09-28_
