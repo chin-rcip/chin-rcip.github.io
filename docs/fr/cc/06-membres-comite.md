@@ -5,7 +5,7 @@ title: Membres du comité
 permalink: /fr/comite-consultatif/membres-du-comite
 other_link: /en/advisory-committee/committee-members
 group: comité consultatif
-date: 2026-05-15
+date: 2026-09-28
 ---
 
 _En mai 2026, le RCIP a lancé un appel de candidatures auprès des professionnels du patrimoine au Canada intéressés à participer à un comité consultatif chargé d’orienter le développement d’un nouveau portail national des collections muséales. Nous avons reçu un très grand nombre de manifestations d’intérêt, et les personnes proposées étaient, dans leur immense majorité, hautement qualifiées, avec des intérêts professionnels et une expérience étroitement alignés sur les objectifs du projet._
@@ -14,10 +14,10 @@ _Les membres ont été sélectionnés afin de veiller à ce que le comité (1) r
 
 ---
 
-#### Liste des membres actuels du comité
+### Liste des membres actuels du comité
 
 **Blythe Appleby** (Ross Farm Museum)
-  - _Biographie professionnelle à venir_
+  - _Blythe Appleby est gestionnaire des collections et spécialiste textile au Musée Ross Farm, en Nouvelle-Écosse. Détentrice d’un diplôme universitaire en histoire et en gestion des ressources patrimoniales, elle possède plus de dix ans d’expérience dans le secteur, ayant occupé différents rôles, allant de la médiation à la planification d’expositions. Depuis 2023, elle est responsable de la vaste collection d’artefacts agricoles au Musée Ross Farm, où elle travaille quotidiennement avec diverses bases de données et plateformes de gestion des collections, notamment CollectionsIndex+, Nova Scotia Museum’s Collections Online, et NovaMuse. Au cours de son parcours, elle a développé une véritable passion pour la documentation et le partage des informations entourant les collections. Elle siège également sur différents comités et groupes de travail provinciaux pour le compte du Musée Ross Farm, en lien avec la gestion des collections et l’interprétation._
 
 **Catherine C. Cole** (Catherine C. Cole & Associates)
 - _Catherine Cole a travaillé partout au Canada ainsi qu’à l’international pendant plus de 30 ans. Elle a animé des consultations pour le RCIP lors de la création du Musée virtuel du Canada (MVC) et a réalisé un examen d’Artefacts Canada au début des années 2000. Elle a également agi à titre de commissaire invitée pour deux expositions du MVC, Avant le commerce électronique : l’histoire des catalogues de vente par correspondance au Canada et GWG : pièce par pièce. Elle a développé Community Collections, des sites virtuels consacrés à des quartiers d’Edmonton, notamment Mill Woods Living Heritage et Edmonton Packingtown. Catherine a assuré la gestion de collections publiques, organisé des expositions à titre de commissaire invitée, mené des recherches indépendantes et enseigné les études muséales. À titre de consultante, elle évalue des projets et des ressources muséales et formule des recommandations sur l’orientation générale des musées ou des initiatives, notamment dans le cadre de la planification stratégique et des évaluations de programmes. Elle a conseillé des organisations sur des sujets liés à l’histoire des peuples autochtones, des immigrants, des femmes et du monde du travail. Elle est l’auteure de plusieurs ouvrages, dont GWG : pièce par pièce (2012), et travaille actuellement à la rédaction de Mill Woods : une ville dans la ville.
@@ -29,7 +29,7 @@ Catherine est membre du conseil exécutif du Conseil international des musées (
 **Cindy Veilleux** (Musée d’art contemporain de Montréal)
   - _Cindy Veilleux est responsable des projets de diffusion numérique des collections au Musée d’art contemporain de Montréal (MAC), où elle oeuvre depuis 2015 au rayonnement de l’art contemporain par le développement de contenus et d’initiatives numériques favorisant l’accès, le partage et la valorisation des collections. Elle participe activement à des comités de réflexion sur la découvrabilité et le numérique, tout en contribuant à renforcer la présence des artistes de la collection dans Wikidata. Son travail a notamment soutenu d’importants chantiers de numérisation, de centralisation et de structuration des données, ainsi que la réalisation de projets porteurs tels que le MACrépertoire, une plateforme évolutive donnant accès à un vaste ensemble d’oeuvres et de ressources liées aux collections et à la programmation du Musée. De 2006 à 2014, elle a occupé des postes de chargée de projets et de communications à la Société des musées du Québec, notamment à titre de coordonnatrice des premiers États généraux des musées du Québec. Entre 2005 et 2010, elle a également collaboré avec le MAC à l’élaboration du Guide de catalogage des collections nouveaux médias de l’Alliance de recherche DOCAM, contribuant ainsi à l’avancement des pratiques de documentation._
 
-**Emmanuel Chateau-Dutier** (Département d’histoire de l’art, Université de Montréal)
+**Emmanuel Château-Dutier** (Département d’histoire de l’art, Université de Montréal)
 - _Emmanuel Château-Dutier est historien de l’architecture et professeur agrégé en muséologie numérique à l’Université de Montréal. Il est actuellement chercheur-invité au Centre André Chastel (UMR 8150). Ses recherches portent sur l’administration de l’architecture publique en France au XIXe siècle, la muséologie et l’histoire de l’art numériques.  Il participe, ou a participé, à plusieurs importants projets de recherche collectifs en histoire de l’art plaçant le numérique au cœur de leur réflexion. Il a notamment assuré la direction numérique de l’édition critique des Cours d’Antoine Desgodets (ANR Desgodets), et il est un des collaborateurs principaux du projet des Guides de Paris au sein du Labex Les Passés dans le présent. Il achève actuellement un projet d’ANR avec Robert Carvais, Valérie Nègre et Michela Barbot sur les Experts parisiens au XVIIIe siècle. Il est par ailleurs responsable de l’axe numérique du Partenariat Des nouveaux usages des collections dans les musées d’art (la collection partagée) et assure la co-direction scientifique de l’Ouvroir d’histoire de l’art et de muséologie numériques qui l’accompagne._
 
 **Heather Courtney** (Musée des Beaux-Arts du Canada)
@@ -47,4 +47,4 @@ Catherine est membre du conseil exécutif du Conseil international des musées (
 **Valerie Chartrand** (Ingenium)
   - _Valerie Chartrand possède une vaste expérience en communications numériques, en planification stratégique et en développement de produits numériques pour le milieu culturel. Elle dirige actuellement le développement et la gestion des produits numériques de trois musées nationaux pour Ingenium. Au cours de sa carrière, elle a également travaillé pour le Réseau canadien d’information sur le patrimoine, Parcs Canada, le Musée des beaux-arts du Canada ainsi que les Musées de l’histoire et de la guerre, où elle a dirigé et soutenu de nombreux projets numériques d’envergure en collaboration avec des partenaires nationaux et internationaux. Son travail allie créativité et réflexion stratégique afin de concevoir des initiatives numériques novatrices qui favorisent l’engagement du public envers le patrimoine et la culture._
 
-_Last updated: 2026-10-23_
+_Last updated: 2026-09-28_
