@@ -7,7 +7,7 @@ language: fr
 title: Modernisation d'Artefacts Canada
 permalink: /fr
 other_link: /en
-date: 2026-08-19
+date: 2026-09-28
 ---
 
 Le Réseau canadien d'information sur le patrimoine (RCIP) entame un ambitieux projet pluriannuel de modernisation du portail national des collections muséales, Artefacts Canada. L’objectif principal de ce projet est de mieux soutenir la capacité numérique des musées partout au pays en les aidant à créer, à préparer et à partager les données sur leurs collections. Ce projet comprend : (1) la simplification du processus de contribution des données, (2) l’amélioration de l’accessibilité et de la découvrabilité en ligne des collections muséales canadiennes (sciences humaines et naturelles), et (3) l’offre d’une interface plus intuitive et attrayante pour les membres du public.
@@ -29,8 +29,8 @@ Bien que nous poursuivions notre collaboration avec ces partenaires, nous accord
 
 ## Communiquez avec nous
 
-Si votre institution souhaite collaborer avec nous dans le cadre de ce projet, n’hésitez pas à communiquer avec nous (_Lien à venir_) !
+Si votre institution souhaite collaborer avec nous dans le cadre de ce projet, n’hésitez pas à communiquer avec nous : rcip-chin@pch.gc.ca
 
-Vous pouvez également nous faire part de vos commentaires, intérêts, préoccupations ou autres réflexions sur le projet, indépendamment de toute affiliation institutionnelle : (LIEN : Communiquez avec nous à propos du projet)
+Vous pouvez également nous faire part de vos commentaires, intérêts, préoccupations ou autres réflexions sur le projet, indépendamment de toute affiliation institutionnelle : [https://forms-formulaires.alpha.canada.ca/fr/id/cmsotr8nf00iv01xdebkmr9z4](https://forms-formulaires.alpha.canada.ca/fr/id/cmsotr8nf00iv01xdebkmr9z4)
 
-_Dernière mise à jour : 2026-08-19_
+_Dernière mise à jour : 2026-09-28_
