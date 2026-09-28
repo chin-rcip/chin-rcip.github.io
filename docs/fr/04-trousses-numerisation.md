@@ -4,7 +4,7 @@ language: fr
 title: Trousses de numérisation
 permalink: /fr/trousses-de-numerisation
 other_link: /en/digitization-kits
-date: 2026-09-15
+date: 2026-09-28
 ---
 
 _Cette page décrit un projet pilote actuellement en cours visant à offrir des trousses de numérisation en prêt aux établissements du patrimoine intéressés._
@@ -45,9 +45,7 @@ Pour le moment, une seule version de la trousse de numérisation est offerte. La
 
 ## Inscrivez votre institution pour participer
 
-Vous souhaitez participer? Remplissez le formulaire ci-dessous pour inscrire votre établissement. Le RCIP communiquera ensuite avec vous pour vous fournir de plus amples renseignements.
-
-_Lien à venir_
+Vous souhaitez participer? Remplissez le formulaire suivante pour inscrire votre établissement. Le RCIP communiquera ensuite avec vous pour vous fournir de plus amples renseignements. [https://forms-formulaires.alpha.canada.ca/fr/id/cmsyp41p7008i01x62c5zf1u6](https://forms-formulaires.alpha.canada.ca/fr/id/cmsyp41p7008i01x62c5zf1u6)
 
 Renseignements requis pour remplir le formulaire :
 - Les coordonnées de la personne responsable de la demande au sein de votre établissement ;
@@ -55,4 +53,4 @@ Renseignements requis pour remplir le formulaire :
 - Une brève description des avantages prévus et de l'utilisation envisagée de ce prêt ;
 - Période pour laquelle l'équipement sera requis.
 
-_Last updated: 2026-09-15_
+_Last updated: 2026-09-28_
