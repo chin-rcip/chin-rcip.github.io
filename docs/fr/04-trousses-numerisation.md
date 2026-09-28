@@ -20,7 +20,7 @@ Pour le moment, il s'agit d'un projet pilote dont les modalités sont susceptibl
 Comment cette initiative contribue à soutenir notre projet global de modernisation d'Artefacts Canada :
 - L'accès à de l'équipement pour la réalisation de projets numériques constitue un élément essentiel du développement des capacités numériques, ce qui représente l'un des principaux objectifs du projet ;
 - La création de substituts numériques (images) pour les collections physiques favorise l'ajout d'un plus grand nombre d'images au portail national ;
-- L'augmentation du nombre d'images accessibles dans le portail contribue à offrir un meilleur accès au patrimoine ainsiq qu'une expérience d'utilisation plus riche et engageante pour le grand public.
+- L'augmentation du nombre d'images accessibles dans le portail contribue à offrir un meilleur accès au patrimoine ainsi qu'une expérience d'utilisation plus riche et engageante pour le grand public.
 
 ### À propos des trousses de numérisation
 
@@ -38,14 +38,14 @@ Pour le moment, une seule version de la trousse de numérisation est offerte. La
 ### Comment ça fonctionne
 
 - Tout établissement patrimonial admissible à contribuer à Artefacts Canada peut participer à cette initiative.
-- Les établissements participants reçoivent une trousse de numérisation par la poste et la conservent pendant une période de deux à trois mois afin de réaliser un projet de numérisation.
+- Les établissements participants reçoivent une trousse de numérisation par la poste et la conserve pendant une période de deux à trois mois afin de réaliser un projet de numérisation.
 - Le choix des objets à numériser, ainsi que les activités de numérisation et de documentation, relèvent entièrement de la responsabilité de l'établissement participant.
 - Nous demandons aux établissements participants de verser dans Artefacts Canada au moins un enregistrement accompagné d'une image pour au moins 50 % des objets numérisés à l'aide de la trousse.
 - À la fin de la période de prêt, l'établissement participant collabore avec le RCIP afin de faciliter le retour de la trousse par la poste.
 
 ## Inscrivez votre institution pour participer
 
-Vous souhaitez participer? Remplissez le formulaire suivante pour inscrire votre établissement. Le RCIP communiquera ensuite avec vous pour vous fournir de plus amples renseignements. [https://forms-formulaires.alpha.canada.ca/fr/id/cmsyp41p7008i01x62c5zf1u6](https://forms-formulaires.alpha.canada.ca/fr/id/cmsyp41p7008i01x62c5zf1u6)
+Vous souhaitez participer? Remplissez le formulaire suivant pour inscrire votre établissement. Le RCIP communiquera ensuite avec vous pour vous fournir de plus amples renseignements. [https://forms-formulaires.alpha.canada.ca/fr/id/cmsyp41p7008i01x62c5zf1u6](https://forms-formulaires.alpha.canada.ca/fr/id/cmsyp41p7008i01x62c5zf1u6)
 
 Renseignements requis pour remplir le formulaire :
 - Les coordonnées de la personne responsable de la demande au sein de votre établissement ;
