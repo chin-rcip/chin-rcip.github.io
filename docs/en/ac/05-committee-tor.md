@@ -38,7 +38,7 @@ Advisory committee members are responsible for:
 - contributing strategic insights and operations expertise from their professional practices to support the project of a new national portal for museum collections;
 - maintaining an awareness of developments in the Canadian museum sector, as well as the wider heritage sector and trends in museology internationally;
 - providing guidance on new or improved functionalities of the portal, such as new tools for data contribution, search, discovery and engagement;
-- providing guidance on CHIN’s research activities as they relate to the portal, ~~such as a survey of users on a specific topic~~;
+- providing guidance on CHIN’s research activities as they relate to the portal, such as a survey of users on a specific topic;
 - providing guidance on the dissemination of data derived from the project for the benefit of contributing museums and the wider Canadian heritage sector.
 
 Advisory committee members are not responsible for:
@@ -49,7 +49,7 @@ Advisory committee members are not responsible for:
 
 #### 3.1. Composition of membership
 
-~~While the purpose of the advisory committee is to ensure adequate input from a wide range of heritage professionals, it also has a practical role. Therefore,~~ the number of members is limited to a minimum of 8 and a maximum of 10 to ensure adequate representation and efficiency.
+While the purpose of the advisory committee is to ensure adequate input from a wide range of heritage professionals, it also has a practical role. Therefore, the number of members is limited to a minimum of 8 and a maximum of 10 to ensure adequate representation and efficiency.
 
 To this end, the membership must include at least one representative from:
 - a small museum*
