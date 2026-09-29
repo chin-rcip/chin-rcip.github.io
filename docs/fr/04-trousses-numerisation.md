@@ -38,7 +38,7 @@ Pour le moment, une seule version de la trousse de numérisation est offerte. La
 ### Comment ça fonctionne
 
 - Tout établissement patrimonial admissible à contribuer à Artefacts Canada peut participer à cette initiative.
-- Les établissements participants reçoivent une trousse de numérisation par la poste et la conserve pendant une période de deux à trois mois afin de réaliser un projet de numérisation.
+- Les établissements participants reçoivent une trousse de numérisation par la poste et la conservent pendant une période de deux à trois mois afin de réaliser un projet de numérisation.
 - Le choix des objets à numériser, ainsi que les activités de numérisation et de documentation, relèvent entièrement de la responsabilité de l'établissement participant.
 - Nous demandons aux établissements participants de verser dans Artefacts Canada au moins un enregistrement accompagné d'une image pour au moins 50 % des objets numérisés à l'aide de la trousse.
 - À la fin de la période de prêt, l'établissement participant collabore avec le RCIP afin de faciliter le retour de la trousse par la poste.
