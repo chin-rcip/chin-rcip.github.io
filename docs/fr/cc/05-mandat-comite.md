@@ -38,7 +38,7 @@ Les membres du comité consultatif doivent :
 - formuler des renseignements stratégiques et apporter une expertise opérationnelle issue de leurs pratiques professionnelles en appui au projet de création d’un nouveau portail national pour les collections de musée ;
 - se tenir informés des nouveautés et développements dans le secteur des musées canadiens, ainsi que dans le secteur plus vaste du patrimoine et des tendances internationales en muséologie ;
 - fournir des conseils sur les fonctionnalités nouvelles ou améliorées du portail, comme les nouveaux outils de partage de données, de recherche, de découverte et de mobilisation ;
-- fournir des conseils sur les activités de recherche du RCIP liées au portail, ~~par exemple un sondage auprès des utilisateurs et utilisatrices sur un sujet précis~~;
+- fournir des conseils sur les activités de recherche du RCIP liées au portail, par exemple un sondage auprès des utilisateurs et utilisatrices sur un sujet précis;
 - fournir des conseils sur la diffusion des données issues du projet au bénéfice des musées participants et de l’ensemble du secteur patrimonial canadien.
 
 Les membres du comité consultatif n’ont pas :
@@ -49,7 +49,7 @@ Les membres du comité consultatif n’ont pas :
 
 #### 3.1. Composition du comité
 
-~~Bien que la mission du comité consultatif soit d’assurer la participation d’un large éventail de spécialistes du patrimoine, il a également un rôle pratique. Par conséquent,~~ le nombre de membres est d’au moins 8 et d’au plus 10, afin d’assurer une représentation adéquate et une bonne efficacité.
+Bien que la mission du comité consultatif soit d’assurer la participation d’un large éventail de spécialistes du patrimoine, il a également un rôle pratique. Par conséquent, le nombre de membres est d’au moins 8 et d’au plus 10, afin d’assurer une représentation adéquate et une bonne efficacité.
 
 À cette fin, le comité doit comprendre au moins un représentant ou une représentante :
 - d’un musée de petite taille*,
