@@ -5,7 +5,7 @@ title: Membres du comité
 permalink: /fr/comite-consultatif/membres-du-comite
 other_link: /en/advisory-committee/committee-members
 group: comité consultatif
-date: 2026-09-28
+date: 2026-10-09
 ---
 
 _En mai 2026, le RCIP a lancé un appel de candidatures auprès des professionnels du patrimoine au Canada intéressés à participer à un comité consultatif chargé d’orienter le développement d’un nouveau portail national des collections muséales. Nous avons reçu un très grand nombre de manifestations d’intérêt, et les personnes proposées étaient, dans leur immense majorité, hautement qualifiées, avec des intérêts professionnels et une expérience étroitement alignés sur les objectifs du projet._
@@ -47,4 +47,4 @@ Catherine est membre du conseil exécutif du Conseil international des musées (
 **Valérie Chartrand** (Ingenium)
   - _Valerie Chartrand possède une vaste expérience en communications numériques, en planification stratégique et en développement de produits numériques pour le milieu culturel. Elle dirige actuellement le développement et la gestion des produits numériques de trois musées nationaux pour Ingenium. Au cours de sa carrière, elle a également travaillé pour le Réseau canadien d’information sur le patrimoine, Parcs Canada, le Musée des beaux-arts du Canada ainsi que les Musées de l’histoire et de la guerre, où elle a dirigé et soutenu de nombreux projets numériques d’envergure en collaboration avec des partenaires nationaux et internationaux. Son travail allie créativité et réflexion stratégique afin de concevoir des initiatives numériques novatrices qui favorisent l’engagement du public envers le patrimoine et la culture._
 
-_Last updated: 2026-09-28_
+_Last updated: 2026-10-09_
