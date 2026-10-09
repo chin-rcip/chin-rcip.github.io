@@ -5,7 +5,7 @@ title: Committee Members
 permalink: /en/advisory-committee/committee-members
 other_link: /fr/comite-consultatif/membres-du-comite
 group: advisory committee
-date: 2026-09-28
+date: 2026-10-09
 ---
 
 _In May of 2026 CHIN launched a call for nominations of heritage professionals in Canada interested in participating in an advisroy committee to help guide the development of a new national portal for museum collections. We received a significant amount of interest in participating, and the nominees were overwhelmingly highly qualified, with professional interests and experience well aligned to our project._
@@ -46,4 +46,4 @@ _Members were selected in aim of ensuring that the committee (1) reflects the wi
 **Valérie Chartrand** (Ingenium)
   - _Valérie Chartrand has extensive experience in digital communications, strategic planning, and digital product development within the cultural sector. In her current role at Ingenium, she leads the development and management of digital products for three national museums: the Canada Science and Technology Museum, the Canada Agriculture and Food Museum, and the Canada Aviation and Space Museum. Throughout her career, she has also worked for the Canadian Heritage Information Network, Parks Canada, the National Gallery and the Museums of History and War, where she has led and contributed to numerous large-scale digital projects in collaboration with national and international partners. Her work combines creativity and strategic thinking to develop innovative digital initiatives that foster public engagement with heritage and culture._
 
-_Last updated: 2026-09-28_
+_Last updated: 2026-10-09_
