@@ -8,7 +8,7 @@ group: advisory committee
 date: 2026-10-09
 ---
 
-_In May of 2026 CHIN launched a call for nominations of heritage professionals in Canada interested in participating in an advisroy committee to help guide the development of a new national portal for museum collections. We received a significant amount of interest in participating, and the nominees were overwhelmingly highly qualified, with professional interests and experience well aligned to our project._
+_In May of 2026 CHIN launched a call for nominations of heritage professionals in Canada interested in participating in an advisory committee to help guide the development of a new national portal for museum collections. We received a significant amount of interest in participating, and the nominees were overwhelmingly highly qualified, with professional interests and experience well aligned to our project._
 
 _Members were selected in aim of ensuring that the committee (1) reflects the wide spectrum of stakeholders the project involves, and (2) possesses the subject matter expertise needed to ensure good guidance of the project._
 
